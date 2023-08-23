@@ -1,1 +1,82 @@
 /* This is the landing page CSS */
+
+/* Reset default list styles */
+ul.navbar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #333;
+}
+
+/* Main navigation bar styles */
+nav {
+    background-color: #333;
+}
+
+/* Container for the menu */
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Menu styles */
+ul.navbar li {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+}
+
+ul.navbar li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Dropdown styles */
+ul.navbar li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    padding: 0;
+    z-index: 1;
+}
+
+ul.navbar li:hover ul {
+    display: block;
+}
+
+ul.navbar li ul li {
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+ul.navbar li ul li a {
+    color: white;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+}
+
+/* Hotel title styles */
+.hotel-title {
+    color: black;
+    margin: 0;
+    font-family: 'Jim Nightshade';
+}
+
+/* Login button styles */
+.login-button {
+    margin-right: 0;
+}
+
+.login-button a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 4px;
+}
