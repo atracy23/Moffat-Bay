@@ -1,5 +1,6 @@
 /* This is the landing page CSS */
 
+
 /* Reset default list styles */
 ul.navbar {
     list-style: none;
@@ -18,7 +19,11 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 15px 20px;
+    /* Increased vertical padding for better spacing */
+    background-color: #333;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Subtle border at the bottom */
 }
 
 /* Menu styles */
@@ -31,6 +36,13 @@ ul.navbar li {
 ul.navbar li a {
     color: white;
     text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    /* Smooth color transition */
+}
+
+ul.navbar li:hover a {
+    color: #f39c12;
+    /* Change link color on hover */
 }
 
 /* Dropdown styles */
@@ -42,10 +54,16 @@ ul.navbar li ul {
     background-color: #444;
     padding: 0;
     z-index: 1;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease-in-out;
+    /* Smooth fade-in effect */
 }
 
 ul.navbar li:hover ul {
     display: block;
+    opacity: 1;
+    /* Show with full opacity */
 }
 
 ul.navbar li ul li {
@@ -59,13 +77,26 @@ ul.navbar li ul li a {
     padding: 10px;
     display: block;
     text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+    /* Smooth background color change */
+}
+
+ul.navbar li ul li a:hover {
+    background-color: #555;
+    /* Darken the background on hover */
 }
 
 /* Hotel title styles */
 .hotel-title {
-    color: black;
+    color: white;
     margin: 0;
-    font-family: 'Jim Nightshade';
+    font-size: 34px;
+    /* Increase font size for emphasis */
+    font-weight: bold;
+    font-family: 'Jim Nightshade', 'Arial', sans-serif;
+    /* Use a common font for compatibility */
+    padding: 8px;
+    /* Add padding for spacing */
 }
 
 /* Login button styles */
@@ -76,7 +107,22 @@ ul.navbar li ul li a {
 .login-button a {
     color: white;
     text-decoration: none;
-    padding: 10px;
-    border: 1px solid white;
+    padding: 10px 20px;
+    /* More padding on the sides for better button appearance */
+    border: 2px solid white;
     border-radius: 4px;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.login-button a:hover {
+    background-color: white;
+    color: #333;
+    border-color: transparent;
+}
+
+.content {
+    padding: 50px;
+    text-align: center;
+    height: 1000px;
+    /* Just for demonstration */
 }
