@@ -10,6 +10,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&family=Jim+Nightshade&display=swap"
         rel="stylesheet">
     <title>Moffat Bay</title>
+    <script>
+        window.addEventListener('scroll', function () {
+            const parallaxContainer = document.querySelector('.Hero');
+            const parallaxImage = parallaxContainer.querySelector('img');
+            const scrollPosition = window.scrollY;
+
+            parallaxImage.style.transform = `translate(0, ${-scrollPosition * 0.5}px)`;
+        });
+    </script>
+
 
 </head>
 
@@ -36,7 +46,7 @@
     </nav>
     <div class="Hero">
         <img src="Landing_images/MountGrantWithBaker.jpg" alt="Image from the San Juan Islands">
-        <div class="image-text">
+        <div class="image-text-container">
             <p class="text-line">A Breath</p>
         </div>
         <div class="image-text2">
@@ -46,6 +56,15 @@
             <p class="text-line">Fresh Air...</p>
         </div>
         <button class="book-now-button">Book Now</button>
+    </div>
+
+    <div class="resort-container">
+
+        <p class="dream-stay">Your dream stay at Moffat Bay promises more than just a vacation; it's an immersive
+            journey into a world where mountains meet the ocean in an embrace of natural splendor. Let the serenity of
+            Moffat Bay soothe your senses and rejuvenate your spirit. Embark on this transcendent experience today and
+            surrender to the allure of nature's masterpiece.</p>
+
     </div>
 
 
