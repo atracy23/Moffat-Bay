@@ -1,0 +1,65 @@
+/* Reset some default browser styles */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a background color and font for the entire page */
+body {
+    font-family: 'Raleway', Arial, Helvetica, sans-serif;
+    background-color: #698F9E;
+}
+
+/* Style the header */
+header {
+    background-color: #386E70;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Style the navigation menu */
+nav {
+    background-color: #959FD6;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Style the main content area */
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #80A6E4;
+    border: 1px solid #8FA7BD;
+}
+
+/* Style footer */
+footer {
+    text-align: center;
+    background-color: #386E70;
+    color: #fff;
+    padding: 10px;
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+}
