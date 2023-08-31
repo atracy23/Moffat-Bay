@@ -49,6 +49,23 @@ main {
     border: 1px solid #8FA7BD;
 }
 
+/* Style submit buttons */
+input[type="submit"],
+button[type="submit"] {
+    background-color: #386E70;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover,
+button[type="submit"]:hover {
+    background-color: #698F9E;
+}
+
 /* Style footer */
 footer {
     text-align: center;
