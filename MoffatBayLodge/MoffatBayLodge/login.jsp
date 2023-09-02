@@ -9,7 +9,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Page</title>
-<link rel="stylesheet" type="text/css" href="./example.css">
 </head>
 <body>
     <h1>Please enter your credentials to login</h1>
