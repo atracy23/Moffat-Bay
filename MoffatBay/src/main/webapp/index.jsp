@@ -313,7 +313,11 @@ footer {
                 </ul>
             </li>
             <li><a href="#">Contact</a></li>
+<<<<<<< HEAD
             <li class="login-button"><a href="login.jsp">Login</a></li>
+=======
+            <li class="login-button"><a href="#">Login</a></li>
+>>>>>>> eeb50bb9245171666c12c530ebe4609a391accf0
         </ul>
     </div>
 
@@ -394,4 +398,8 @@ footer {
 </body>
 
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> eeb50bb9245171666c12c530ebe4609a391accf0
