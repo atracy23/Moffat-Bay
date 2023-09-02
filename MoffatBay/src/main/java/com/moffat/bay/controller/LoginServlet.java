@@ -25,7 +25,7 @@ public class LoginServlet extends HttpServlet {
     	UserDao userDao = new UserDao();
     	
         //login logic - checking credentials in the database
-    	UserBean user;
+    	UserBean user = null;
 		try {
 			user = userDao.getUser(username, password);
 	        if (user!=null) {
@@ -33,9 +33,12 @@ public class LoginServlet extends HttpServlet {
 	            // You can redirect to the reservation page or include the reservation form here
 	        	System.out.println("User exists: "+ user.toString());
 	            response.sendRedirect("reservation.jsp");
-	        } else {
-	            // Invalid credentials, redirect back to index.jsp with an error message
-	        	request.setAttribute("message", "Incorrect username or password. <br/>Please try again!");
+	        } else if (user == null) {
+	            // Invalid credentials, redirect back to login.jsp with an error message
+	        	System.out.println("Incorrect credentials!");
+	        	request.setAttribute("message", "Oops!! Incorrect username or password. <br/>Please try again!");
+	        	response.setContentType("text/html");
+	        	request.getRequestDispatcher("login.jsp").forward(request, response);
 	        }		
         } catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
