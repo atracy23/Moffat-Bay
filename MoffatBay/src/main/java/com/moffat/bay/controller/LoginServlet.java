@@ -1,5 +1,6 @@
 package com.moffat.bay.controller;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,7 +33,12 @@ public class LoginServlet extends HttpServlet {
 	            // Successful login
 	            // You can redirect to the reservation page or include the reservation form here
 	        	System.out.println("User exists: "+ user.toString());
-	            response.sendRedirect("reservation.jsp");
+                String successfulLoginMessage = "Welcome "+ user.getFirstName() + "!";
+                request.setAttribute("successfulLoginMessage",  successfulLoginMessage);
+                RequestDispatcher successReg = request.getRequestDispatcher("/index.jsp");
+                successReg.forward(request, response);
+                return;
+	            
 	        } else if (user == null) {
 	            // Invalid credentials, redirect back to login.jsp with an error message
 	        	System.out.println("Incorrect credentials!");

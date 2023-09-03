@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>     
 <!DOCTYPE html>
 <html lang="en">
 
@@ -320,6 +321,9 @@ footer {
     </nav>
 
     <div class="Hero">
+        <c:if test = "${not empty successfulLoginMessage}">
+			<h2>${successfulLoginMessage}</h2>
+		</c:if>
         <img src="Landing_images/MountGrantWithBaker.jpg" alt="Image from the San Juan Islands">
         <div class="image-text-container">
             <p class="text-line">A Breath</p>
