@@ -21,6 +21,7 @@ public class RegistrationBean {
 	public RegistrationBean(String message) {
 		
 		this.message = message;
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getFirstName() {

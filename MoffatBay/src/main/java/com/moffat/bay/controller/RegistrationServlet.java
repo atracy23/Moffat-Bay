@@ -54,11 +54,11 @@ public class RegistrationServlet extends HttpServlet {
 		};
 		
 		//get info from Bean
-		RegistrationBean register = new RegistrationBean(firstName, lastName, email, phoneNum, password);
+		//RegistrationBean register = new RegistrationBean(firstName, lastName, email, phoneNum, password);
 		
 		//verifying user email doesn't exist in DB
 		try {
-			registerDao.getRegisterInfo(firstName, lastName, email, phoneNum, password);
+			RegistrationBean register = registerDao.getRegisterInfo(firstName, lastName, email, phoneNum, password);
 		
 			if(register == null) { //email was found in database
 				System.out.println("entered if register on servlet");
@@ -69,17 +69,9 @@ public class RegistrationServlet extends HttpServlet {
 				return;
 			} else { //user created
 				
-				String page = "";
-				try {
-				} catch (Exception e) {
-					page = "error.jsp";
-				} finally {
-					page = "/reservation.jsp";
-				}
-				System.out.println("entered else register on servlet");
-				response.sendRedirect(request.getContextPath() + page);
+				response.sendRedirect("/MoffatBay/login.jsp");
 				return;
-				//System.out.println("sent to reservation");
+				
 			} //end else
 				
 		} catch (ClassNotFoundException | SQLException e) {
