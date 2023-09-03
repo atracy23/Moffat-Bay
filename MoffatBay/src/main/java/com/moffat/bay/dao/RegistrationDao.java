@@ -38,7 +38,7 @@ public class RegistrationDao {
 			emailResult = emailStatement.executeQuery();
 			
 			//if email does exist in db user table
-			while(emailResult.next()) {
+			if(emailResult.next()) {
 				return register;
 			} 
 
@@ -46,14 +46,13 @@ public class RegistrationDao {
 			String encryptedPassword = PasswordHash.hash(password);
 			int userResult;
 			
-			String createUser = "INSERT INTO users (userID, firstName, lastName, email, phoneNum, password)" + "VALUES(?, ?, ?, ?, ?, ?)";
+			String createUser = "INSERT INTO users (firstName, lastName, email, phoneNum, password)" + "VALUES(?, ?, ?, ?, ?)";
 			createUserStatement = dbConn.prepareStatement(createUser);
-			createUserStatement.setString(1, "MB821");
-			createUserStatement.setString(2, firstName);
-			createUserStatement.setString(3, lastName);
-			createUserStatement.setString(4, email);
-			createUserStatement.setString(5, phoneNum);
-			createUserStatement.setString(6, encryptedPassword);
+			createUserStatement.setString(1, firstName);
+			createUserStatement.setString(2, lastName);
+			createUserStatement.setString(3, email);
+			createUserStatement.setString(4, phoneNum);
+			createUserStatement.setString(5, encryptedPassword);
 			userResult = createUserStatement.executeUpdate();
 			
 			return newUser;
@@ -75,13 +74,13 @@ public class RegistrationDao {
 	}
 	
 	public Connection dbConnection() throws ClassNotFoundException, SQLException{
-		String dbURL = "jdbc:mysql://localhost:3306/moffat_bay";
-		String dbUsername = "root";
-		String dbPassword = "root";
-		
+        String dbUrl = "jdbc:mysql://localhost:3306/moffat_bay";
+        String dbUsername = "root";
+        String dbPassword = "root";
+
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
-		
-		return conn;
+		Connection conn = DriverManager.getConnection(dbUrl, dbUsername, "Yogesh@05");
+
+        return conn;
 	}
 }
