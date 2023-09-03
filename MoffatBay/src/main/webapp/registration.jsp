@@ -33,10 +33,6 @@
     	.sub_container{height: fit-content; justify-content: center; margin: auto;}
     	.header{text-align: center; border: solid gray; width: 100%; height: 50px; background-color: white;}
     	.footer{text-align: center; border: solid gray; width: 100%; height: 50px; position: fixed; bottom: 0; background-color: white;}
-/* 
-		.error{color: maroon; border: solid gray; background-color: cornflowerblue; height: fit-content; width: fit-content; padding: 5px; font-size: medium;} 
-*/
-    	#error{}
     	#message{display: none; color: #000; position: relative; padding: 20px; margin-top: 10px;}
     	#message p{padding: 10px 35px; font-size: 18px;}
 ul.navbar {
