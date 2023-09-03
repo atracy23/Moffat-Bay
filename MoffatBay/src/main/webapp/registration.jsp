@@ -75,7 +75,7 @@
 	
 	<div class="container">
 		<div class="sub_container">
-			<p>Already have an account? <a href="http://localhost:7070/MoffatBay/login.jsp"> Login</a></p>
+			<p>Already have an account? <a href="login.jsp"> Login</a></p>
 		</div>
 	</div>
 	
