@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-  
+ 
 <%@ page import="java.sql.*" %>
 <%@ page import="com.moffat.bay.*" %> 
 
@@ -250,17 +249,14 @@ footer {
 				
 			<label for="confirmPassword" data-success="">Please confirm password:*</label><br>
 			<input type="password" id="confirmPassword" name="confirmPassword" value="{param.email}" class="validate" required ><br><br>
-			<c:if test="${not empty passwordMatchError}" >
-			<b>${passwordMatchError}</b></c:if><br>
-			
+			<h3 style="color: red">${passwordMatchError}</h3>
+						
 			<input type="submit" value="Sign Up" style="margin: auto;"><br><br>
 			
 		</form>
 		<br>
-		<c:if test = "${not empty message}">
-			<div class="error"><b>${message}</b></div>
-		</c:if>	
-		
+		<h3 style="color: red">${message}</h3>
+				
 		<p>Already have an account? <a href="http://localhost:7070/MoffatBay/login.jsp"> Login</a></p>
 	</div>
 	<div class="required">
