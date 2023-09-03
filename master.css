@@ -1,0 +1,53 @@
+/* Reset some default browser styles */
+body,h1,h2,p,ul,li{margin:0;padding:0;}
+
+/* Set a background color and font for the entire page */
+body{font-family:'Raleway',Arial,Helvetica,sans-serif;background-color:#698F9E;}
+
+/* Styles for the header and navigation menu */
+header,nav{background-color:#386E70;color:#fff;padding:10px;text-align:center;}
+
+/* Navigation menu */
+nav ul{list-style-type:none;display:flex;justify-content:center;}
+nav li{margin:0 15px;}
+nav a{text-decoration:none;color:#fff;}
+
+/* Main content area */
+main{max-width:800px;margin:20px auto;padding:20px;background-color:#80A6E4;border:1px solid #8FA7BD;}
+
+/* Style submit buttons */
+input[type="submit"],button[type="submit"]{background-color:#386E70;color:#fff;border:none;padding:10px 20px;cursor:pointer;font-size:16px;border-radius:5px;}
+input[type="submit"]:hover,button[type="submit"]:hover{background-color:#698F9E;}
+
+/* Footer */
+footer{text-align:center;background-color:#386E70;color:#fff;padding:10px;}
+
+/* Additional Styles - Copy from second file */
+ul.navbar{list-style:none;padding:0;margin:0;background-color:#333;}
+.navbar-container{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;background-color:#333;border-bottom:1px solid rgba(255,255,255,0.1);}
+ul.navbar li{position:relative;display:inline-block;margin-right:20px;}
+ul.navbar li a{color:white;text-decoration:none;transition:color 0.3s ease-in-out;}
+ul.navbar li:hover a{color:#f39c12;}
+ul.navbar li ul{display:none;position:absolute;top:100%;left:0;background-color:#444;padding:0;z-index:1;border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,0.1);transition:opacity 0.3s ease-in-out;}
+ul.navbar li:hover ul{display:block;opacity:1;}
+ul.navbar li ul li{display:block;width:100%;margin:0;}
+ul.navbar li ul li a{color:white;padding:10px;display:block;text-decoration:none;transition:background-color 0.3s ease-in-out;}
+ul.navbar li ul li a:hover{background-color:#555;}
+.hotel-title{color:white;margin:0;font-size:34px;font-weight:bold;font-family:'Jim Nightshade','Arial',sans-serif;padding:8px;}
+.login-button{margin-right:0;}
+.login-button a{color:white;text-decoration:none;padding:10px 20px;border:2px solid rgb(38,165,181);border-radius:4px;transition:background-color 0.3s ease-in-out,border-color 0.3s ease-in-out;}
+.login-button a:hover{background-color:rgb(38,165,181);color:#333;border-color:transparent;}
+
+/* Styles from third file */
+.Hero img{width:100%;height:750px;display:block;}
+.image-text-container,.image-text2,.image-text3{position:absolute;color:white;font-size:34px;font-weight:bold;}
+.image-text-container{top:50%;left:300px;transform:translateY(-50%);}
+.image-text2{top:58%;left:400px;transform:translateY(-50%);}
+.image-text3{top:65%;left:440px;transform:translateY(-50%);}
+.text-line{margin:0;line-height:1.2;}
+.book-now-button{position:absolute;bottom:200px;right:300px;background-color:rgb(38,165,181);color:white;padding:10px 20px;border:none;border-radius:4px;cursor:pointer;font-size:18px;}
+.book-now-button:hover{color:#f39c12;}
+
+/* Transition box one styles */
+.resort-container{position:relative;width:100%;height:80px;margin:0 auto;}
+.dream-stay{color:white;background-color:#555;}
