@@ -28,7 +28,6 @@ public class RegistrationDao {
 		PreparedStatement createUserStatement = null;
 		
 		try {
-			
 			dbConn = dbConnection();
 			
 			String getEmailQuery = "SELECT lastName FROM users WHERE email = ?";
@@ -40,7 +39,7 @@ public class RegistrationDao {
 			//if email does exist in db user table
 			if(emailResult.next()) {
 				return register;
-			} 
+			}
 
 			//email does not exist currently - adding user info to user table
 			String encryptedPassword = PasswordHash.hash(password);
@@ -55,6 +54,8 @@ public class RegistrationDao {
 			createUserStatement.setString(5, encryptedPassword);
 			userResult = createUserStatement.executeUpdate();
 			
+			System.out.println("updated db on Dao");
+
 			return newUser;
 			
 		}finally {
@@ -79,7 +80,7 @@ public class RegistrationDao {
         String dbPassword = "root";
 
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conn = DriverManager.getConnection(dbUrl, dbUsername, "Yogesh@05");
+		Connection conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
 
         return conn;
 	}

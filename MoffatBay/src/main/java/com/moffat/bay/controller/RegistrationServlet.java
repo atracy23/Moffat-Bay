@@ -25,7 +25,10 @@ public class RegistrationServlet extends HttpServlet {
     }
     
     public class CustomException extends RuntimeException{
-    	public CustomException(String message) {
+    	
+		private static final long serialVersionUID = 1L;
+
+		public CustomException(String message) {
     		super(message);
     	}
     }
@@ -53,15 +56,13 @@ public class RegistrationServlet extends HttpServlet {
 			return;
 		};
 		
-		//get info from Bean
-		//RegistrationBean register = new RegistrationBean(firstName, lastName, email, phoneNum, password);
-		
 		//verifying user email doesn't exist in DB
 		try {
+			
 			RegistrationBean register = registerDao.getRegisterInfo(firstName, lastName, email, phoneNum, password);
 		
 			if(register == null) { //email was found in database
-				System.out.println("entered if register on servlet");
+				
 				String message = "This email already exists in the system.  Please login or enter another email address.";
 				request.setAttribute("message",  message);
 				RequestDispatcher rd = request.getRequestDispatcher("/registration.jsp");
@@ -69,7 +70,7 @@ public class RegistrationServlet extends HttpServlet {
 				return;
 			} else { //user created
 				
-                String successfulRegistrationMessage = "You have successfully registered at Moffat Bay Lodge!";
+				String successfulRegistrationMessage = "You have successfully registered at Moffat Bay Lodge!";
                 request.setAttribute("successfulRegistrationMessage",  successfulRegistrationMessage);
                 RequestDispatcher successReg = request.getRequestDispatcher("/login.jsp");
                 successReg.forward(request, response);
