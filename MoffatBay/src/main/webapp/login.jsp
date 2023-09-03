@@ -305,7 +305,7 @@ footer {
 	        <div class="footer-section">
 	            <h3>Account</h3>
 	            <ul>
-	                <li><a href="#">Login</a></li>
+	                <li><a href="login.jsp">Login</a></li>
 	            </ul>
 	        </div>
 	    </div>

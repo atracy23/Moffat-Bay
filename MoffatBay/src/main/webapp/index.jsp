@@ -319,11 +319,14 @@ footer {
     </div>
 
     </nav>
-
-    <div class="Hero">
-        <c:if test = "${not empty successfulLoginMessage}">
+    <div>
+    	<c:if test = "${not empty successfulLoginMessage}">
 			<h2>${successfulLoginMessage}</h2>
 		</c:if>
+    </div>
+
+    <div class="Hero">
+
         <img src="Landing_images/MountGrantWithBaker.jpg" alt="Image from the San Juan Islands">
         <div class="image-text-container">
             <p class="text-line">A Breath</p>
@@ -386,7 +389,7 @@ footer {
         <div class="footer-section">
             <h3>Account</h3>
             <ul>
-                <li><a href="#">Login</a></li>
+                <li><a href="login.jsp">Login</a></li>
             </ul>
         </div>
     </div>
