@@ -69,8 +69,11 @@ public class RegistrationServlet extends HttpServlet {
 				return;
 			} else { //user created
 				
-				response.sendRedirect("/MoffatBay/login.jsp");
-				return;
+                String successfulRegistrationMessage = "You have successfully registered at Moffat Bay Lodge!";
+                request.setAttribute("successfulRegistrationMessage",  successfulRegistrationMessage);
+                RequestDispatcher successReg = request.getRequestDispatcher("/login.jsp");
+                successReg.forward(request, response);
+                return;
 				
 			} //end else
 				
