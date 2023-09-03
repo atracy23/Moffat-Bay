@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="com.moffat.bay.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 
 
 <!DOCTYPE html>
@@ -255,6 +256,10 @@ footer {
 
     </nav>
     <div class="center-container">
+    
+        <c:if test = "${not empty successfulRegistrationMessage}">
+			<h2>${successfulRegistrationMessage}</h2>
+		</c:if>	
         <h2 class>Please enter your credentials to login</h2>
 
         <form action="/MoffatBay/login" method="post">
