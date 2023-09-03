@@ -360,7 +360,7 @@ footer {
     </div>
     
      <div class="Whale-image">
-        <img src="Landing_images/whale-watching-tour-san-juan-islands.jpg" alt="View from Whale Watching">
+        <img src="<%=request.getContextPath()%>/Landing_images/whale-watching-tour-san-juan-islands.jpg" alt="View from Whale Watching">
 
     </div >
     

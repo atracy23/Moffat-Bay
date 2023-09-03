@@ -16,6 +16,16 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping> 
     
+    <servlet>
+    	<servlet-name>default</servlet-name>
+    	<servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>default</servlet-name>
+    	<url-pattern>/Landing_images/*</url-pattern>
+	</servlet-mapping>
+    
+    
     <!-- JSP Configuration -->
     <jsp-config>
         <jsp-property-group>
