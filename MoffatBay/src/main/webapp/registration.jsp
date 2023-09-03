@@ -32,8 +32,8 @@
 	<h1>Registration Page</h1>
 	<ul class="breadcrumb">
 		<li>Registration</li>
-		<li><a href="/MoffatBay/login.jsp">LogIn</a></li>
-		<li><a href="/MoffatBay/reservation.jsp">Reservation</a></li>
+		<li><a href="login.jsp">LogIn</a></li>
+		<li><a href="reservation.jsp">Reservation</a></li>
 		<li><a href="#">Reservation Summary</a></li>
 	</ul>
 	<br><br>
