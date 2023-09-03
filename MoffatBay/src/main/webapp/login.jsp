@@ -236,7 +236,7 @@ footer {
 	    <div class="navbar-container">
 	        <h2 class="hotel-title">Moffat Bay</h2>
 	        <ul class="navbar">
-	            <li><a href="#">Home</a></li>
+	            <li><a href="index.jsp">Home</a></li>
 	            <li><a href="#">About</a></li>
 	            <li><a href="#">Attractions</a> </li>
 	
@@ -245,7 +245,7 @@ footer {
 	                <ul>
 	                    <li><a href="#">Book a Reservation</a></li>
 	                    <li><a href="#">Reservation Look up</a></li>
-	                    <li><a href="#">Create an Account</a></li>
+	                    <li><a href="register.jsp">Create an Account</a></li>
 	                </ul>
 	            </li>
 	            <li><a href="#">Contact</a></li>
