@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   
 <%@ page import="java.sql.*" %>
 <%@ page import="com.moffat.bay.*" %> 
@@ -7,9 +8,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="home_css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&family=Jim+Nightshade&display=swap"
+        rel="stylesheet">
+        
 <title>Registration Page</title>
+
 	<style>
 		body{background-color: #4444;}
     	h1{text-align: center; text: bold;}
@@ -26,7 +34,9 @@
     	.sub_container{height: fit-content; justify-content: center; margin: auto;}
     	.header{text-align: center; border: solid gray; width: 100%; height: 50px; background-color: white;}
     	.footer{text-align: center; border: solid gray; width: 100%; height: 50px; position: fixed; bottom: 0; background-color: white;}
-    	.error{color: maroon; border: solid gray; background-color: cornflowerblue; height: fit-content; width: fit-content; padding: 5px; font-size: medium;}
+/* 
+		.error{color: maroon; border: solid gray; background-color: cornflowerblue; height: fit-content; width: fit-content; padding: 5px; font-size: medium;} 
+*/
     	#error{}
     	#message{display: none; color: #000; position: relative; padding: 20px; margin-top: 10px;}
     	#message p{padding: 10px 35px; font-size: 18px;}
@@ -185,7 +195,7 @@ footer {
 }
     	
     </style>
-    
+
 </head>
 <body>
 	<nav>
@@ -219,57 +229,40 @@ footer {
 	</ul>
 	<br><br>
 	
-	<form action="/MoffatBay/register" method="post">
-		<div class="container">
-		
-			<div class="form_container">
+	<div class="center-container">
+		<form action="/MoffatBay/register" method="post">
 			
-				<label for="firstName">Enter your first name:*</label><br>
-				<input type="text" id="firstName" name="firstName" required><br><br>
+			<label for="firstName">Enter your first name:*</label><br>
+			<input type="text" id="firstName" name="firstName" required><br><br>
 				
-				<label for="lastName">Enter your last name:*</label><br>
-				<input type="text" id="lastName" name="lastName" required><br><br>
+			<label for="lastName">Enter your last name:*</label><br>
+			<input type="text" id="lastName" name="lastName" required><br><br>
 				
-				<label for="email">Enter your email address:*</label><br>
-				<input type="text" id="email" name="email" required><br><br>
+			<label for="email">Enter your email address:*</label><br>
+			<input type="text" id="email" name="email" required><br><br>
 				
-				<label for="phoneNum">Enter your phone number:*</label><br>
-				<input type="text" id="phoneNum" name="phoneNum" required><br><br>
+			<label for="phoneNum">Enter your phone number:*</label><br>
+			<input type="text" id="phoneNum" name="phoneNum" required><br><br>
 				
-				<label for="password">Create a password:*</label><br>
-				<input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number,
+			<label for="password">Create a password:*</label><br>
+			<input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number,
 				 one uppercase letter, one lowercase letter, and at least 8 or more characters" required><br><br>
 				
-				<label for="confirmPassword" data-success="">Please confirm password:*</label><br>
-				<input type="password" id="confirmPassword" name="confirmPassword" value="{param.email}" class="validate" required ><br><br>
-				<c:if test="${not empty passwordMatchError}" >
-					<div class="error" style="border: 2px solid maroon; margin-left: 10px; padding: 10px;"><b>${passwordMatchError}</b></div></c:if><br><br>
-				
- 				<div class="container" style="border: none; display: flexbox;">
+			<label for="confirmPassword" data-success="">Please confirm password:*</label><br>
+			<input type="password" id="confirmPassword" name="confirmPassword" value="{param.email}" class="validate" required ><br><br>
+			<c:if test="${not empty passwordMatchError}" >
+			<b>${passwordMatchError}</b></c:if><br>
 			
-					<input type="submit" value="Sign Up" style="margin: auto;"><br><br>
-				</div>
-			</div>
-		</div>
+			<input type="submit" value="Sign Up" style="margin: auto;"><br><br>
 			
-	</form>
-	
-	<br>
-	<div id="error">
-		<div class="container" style="border: none; background-color: silver;">
-			<c:if test = "${not empty message}">
-				<div class="error"><b>${message}</b></div>
-			</c:if>	
-		</div>
+		</form>
+		<br>
+		<c:if test = "${not empty message}">
+			<div class="error"><b>${message}</b></div>
+		</c:if>	
+		
+		<p>Already have an account? <a href="http://localhost:7070/MoffatBay/login.jsp"> Login</a></p>
 	</div>
-	
-	<br>
-	<div class="container">
-		<div class="sub_container">
-			<p>Already have an account? <a href="http://localhost:7070/MoffatBay/login.jsp"> Login</a></p>
-		</div>
-	</div>
-	
 	<div class="required">
 		* indicates required field
 	</div>
@@ -298,7 +291,8 @@ footer {
 	        <div class="footer-section">
 	            <h3>Account</h3>
 	            <ul>
-	                <li><a href="#">Login</a></li>
+	                <li><a href="login.jsp">Login</a></li>
+	                <li><a href="registration.jsp">Create an Account</a></li>
 	            </ul>
 	        </div>
 	    </div>
