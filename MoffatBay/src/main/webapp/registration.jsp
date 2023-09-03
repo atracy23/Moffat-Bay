@@ -292,6 +292,5 @@ footer {
 	        <p>&copy; 2023 Moffat Bay Resort. All rights reserved.</p>
 	    </div>
 	</footer>
-	
 </body>
 </html>
