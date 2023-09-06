@@ -7,6 +7,8 @@
 
             <head>
                 <meta charset="UTF-8">
+                <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&family=Jim+Nightshade&display=swap"
+                    rel="stylesheet">
                 <title>Login Page</title>
                 <style>
                     ul.navbar {
