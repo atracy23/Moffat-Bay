@@ -24,7 +24,7 @@
 
 					h1 {
 						text-align: center;
-						text: bold;
+						font-weight: bold;
 					}
 
 					img {
