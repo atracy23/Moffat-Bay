@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class UserBean {
 	
-	 private String userID;
+	 private int userID;
 	 private String firstName; 
 	 private String lastName;
 	 //private Date dateOfBirth;
@@ -12,7 +12,7 @@ public class UserBean {
 	 private String phoneNumb;
 	 private String password; 
 	 
-	 public UserBean (String id, String firstName, String lastName, String email, String phoneNumber, String password) {
+	 public UserBean (int id, String firstName, String lastName, String email, String phoneNumber, String password) {
 		 this.userID = id;
 		 this.firstName = firstName;
 		 this.lastName = lastName;
@@ -25,11 +25,11 @@ public class UserBean {
 		 
 	 }
 
-	public String getId() {
+	public int getId() {
 		return userID;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.userID = id;
 	}
 

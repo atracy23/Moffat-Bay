@@ -1,12 +1,22 @@
+<!-- Green Team MoffatBay Lodge Project
+	 Bellevue University
+	 October 2023
+	 Professor Sue Sampson
+	 Team members:	Ron Stewart
+					Rashmi Sathiyanarayanan
+					Joseph Youskievicz
+					Angie Tracy
+ -->
+    
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%@ page import="com.moffat.bay.*" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>      
 
 <!DOCTYPE html>
 <html>
+<head>
 <meta charset="ISO-8859-1">
  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -171,6 +181,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
+    		justify-content: space-between;
+    		
         }
 
         .timeline {
@@ -402,9 +414,12 @@
             font-size: 12px;
         }
     </style>
-</head>
-<body>
 
+    
+</head>
+
+<body>
+		
 	<nav>
 	    <div class="navbar-container">
 	        <h2 class="hotel-title">Moffat Bay</h2>
@@ -427,36 +442,52 @@
 	    </div>
 
     </nav>
-    <div class="center-container">
-    
-        <c:if test = "${not empty successfulRegistrationMessage}">
-			<h2>${successfulRegistrationMessage}</h2>
-		</c:if>	
-        <h2 class>Please enter your credentials to login</h2>
+		
 
-        <form action="/MoffatBay/login" method="post">
-
-            <label for="email">Email:  </label>
-            <input type="text" name="email" id="email" required><br>
-            <p>
-            
-            <label for="password">Password:</label>
-            <input type="text" name="password" id="password" required><br>
-            <p>
-            <input type="submit" value="Submit" class="login-now-button">
-            
-            <%
-                String error_msg = (String) request.getAttribute("message");
-            %>
-            
-            <h3 style="color: red">${message}</h3>
-            <br>
-            <br>
-            <br>
-        </form>
-    </div>
+	<div class="center-container">
+	
+	    <h1>Reservation Summary</h1>
+	    
+		    <!-- Display reservation details here -->
+		    <p>Room Size: ${reserveSummary.roomSize}</p>
+		    <p>Number of Guests: ${reserveSummary.numGuests}</p>
+		    <p>Check-in Date: ${reserveSummary.inDate}</p>
+		    <p>Check-out Date: ${reserveSummary.outDate}</p>
+		    <p>Total Price: $${reserveSummary.price}</p>
     
-    <footer>
+  			<form action="/MoffatBay/summary" method="post">
+			    <input type="hidden" name="roomSize" value="${reserveSummary.roomSize}">
+			    <input type="hidden" name="numGuests" value="${reserveSummary.numGuests}">
+			    <input type="hidden" name="inDate" value="${reserveSummary.inDate}">
+			    <input type="hidden" name="outDate" value="${reserveSummary.outDate}">
+			    <input type="hidden" name="price" value="${reserveSummary.price}">
+			    <input type="hidden" name="roomNum" value="${reserveSummary.roomNum}">
+			    
+			    <div class="container">
+			        <input type="submit" name="submitButton" value="Submit Reservation" class="login-now-button">
+					<input type="submit" name="cancelButton" value="Cancel Reservation" class="login-now-button">                   
+			    </div>
+			</form>
+			
+			<div>
+				<c:if test = "${not empty successfulReservationMessage}">
+					<h2>${successfulReservationMessage}</h2>
+				</c:if>	
+			</div>  
+		
+		
+	</div>
+		
+	
+	<br><br>
+		<img src="images/reservationImage.jpg" alt = "Deck view of Bay">
+	<div class="required">
+		* indicates required field
+	</div>
+	
+	<br>
+	
+	<footer>
 	    <div class="footer-content">
 	        <div class="footer-section">
 	            <h3>About Us</h3>
@@ -489,7 +520,6 @@
 	        <p>&copy; 2023 Moffat Bay Resort. All rights reserved.</p>
 	    </div>
 	</footer>
-
-
+	
 </body>
 </html>

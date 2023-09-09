@@ -39,7 +39,7 @@ public class UserDao {
 			userFromDb = findUser.executeQuery();
 			
 			if(userFromDb.next()) {
-				String id = userFromDb.getString("userID");
+				int id1 = userFromDb.getInt("userID");
 				String firstName = userFromDb.getString("firstName");
 				String lastName = userFromDb.getString("lastName");
 				String emailFromDb = userFromDb.getString("email");
@@ -48,7 +48,7 @@ public class UserDao {
 				String pass1 = userFromDb.getString("password");
 				
 				// use the userId during construction
-				user = new UserBean(id, firstName, lastName, emailFromDb, phNb, pass1 );
+				user = new UserBean(id1, firstName, lastName, emailFromDb, phNb, pass1);
 				
 			}
 			
@@ -68,7 +68,7 @@ public class UserDao {
 	public Connection dbConnection() throws ClassNotFoundException, SQLException {
         String dbUrl = "jdbc:mysql://localhost:3306/moffat_bay";
         String dbUsername = "root";
-        String dbPassword = "root";
+        String dbPassword = "Yogesh@05";
 
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
