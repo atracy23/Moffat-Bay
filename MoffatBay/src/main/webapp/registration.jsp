@@ -1,7 +1,17 @@
+<!-- Green Team MoffatBay Lodge Project
+	 Bellevue University
+	 October 2023
+	 Professor Sue Sampson
+	 Team members:	Ron Stewart
+					Rashmi Sathiyanarayanan
+					Joseph Youskievicz
+					Angie Tracy
+ -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-	<%@ page import="java.sql.*" %>
-		<%@ page import="com.moffat.bay.*" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.moffat.bay.*" %>
 
 			<!DOCTYPE html>
 			<html>
@@ -24,7 +34,7 @@
 
 					h1 {
 						text-align: center;
-						font-weight: bold;
+						text: bold;
 					}
 
 					img {
@@ -326,9 +336,9 @@
 							<li><a href="#">Attractions</a> </li>
 
 							<li>
-								<a href="#">Reservation</a>
+								<a href="reservation.jsp">Reservation</a>
 								<ul>
-									<li><a href="#">Book a Reservation</a></li>
+									<li><a href="reservation.jsp">Book a Reservation</a></li>
 									<li><a href="#">Reservation Look up</a></li>
 									<li><a href="registration.jsp">Create an Account</a></li>
 								</ul>
@@ -344,7 +354,7 @@
 					<li>Registration</li>
 					<li><a href="login.jsp">LogIn</a></li>
 					<li><a href="reservation.jsp">Reservation</a></li>
-					<li><a href="#">Reservation Summary</a></li>
+					<li><a href="summary.jsp">Reservation Summary</a></li>
 				</ul>
 				<br><br>
 
@@ -369,7 +379,7 @@
 				 one uppercase letter, one lowercase letter, and at least 8 or more characters" required><br><br>
 
 						<label for="confirmPassword" data-success="">Please confirm password:*</label><br>
-						<input type="password" id="confirmPassword" name="confirmPassword" value="{param.email}"
+						<input type="password" id="confirmPassword" name="confirmPassword" 
 							class="validate" required><br><br>
 						<h3 style="color: red">${passwordMatchError}</h3>
 

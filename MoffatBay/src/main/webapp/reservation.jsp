@@ -3,9 +3,9 @@
 	 October 2023
 	 Professor Sue Sampson
 	 Team members:	Ron Stewart
-					Rashmi Sathiyanarayanan
-					Joseph Youskievicz
-					Angie Tracy
+									Rashmi Sathiyanarayanan
+									Joseph Youskievicz
+									Angie Tracy
  -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -13,6 +13,15 @@
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="com.moffat.bay.model.UserBean"%>
+<%@ page import="com.moffat.bay.model.RegistrationBean"%>
+<%@ page import="com.moffat.bay.controller.RegistrationServlet"%>
+<%@ page import="javax.servlet.http.HttpServlet"%>
+<%@ page import="javax.servlet.http.HttpServletRequest"%>
+<%@ page import="javax.servlet.http.HttpServletResponse"%>
+<%@ page import="javax.servlet.http.HttpSession"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -22,9 +31,42 @@
 	<title>Reservation</title>
 	
 	<link rel="stylesheet" href="/MoffatBay/com/WebContent/css/reservations.css"/>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+	
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+	
+	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>  
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
+      <!-- Javascript -->  
+      <script>  
+         $(function() {  
+            $( "#datepick-1" ).datepicker({  
+               //appendText:"(yy-mm-dd)",  
+               dateFormat:"yy-mm-dd",  
+               altField: "#datepick-2",  
+               altFormat: "MM dd, yy"  
+            });  
+         });  
+         $(function() {  
+             $( "#datepick-3" ).datepicker({  
+                //appendText:"(yy-mm-dd)",  
+                dateFormat:"yy-mm-dd",  
+                altField: "#datepick-4",  
+                altFormat: "MM dd, yy"  
+             });  
+          });  
+         
+         function hideError(){
+        	 document.getElementById("error_message").style.display="none";
+         }
+/*         
+         HttpSession session = request.getSession(false);
+         String numGuestsStr = (String) session.getAttribute("numGuestsStr");
+         String roomSize = (String) session.getAttribute("roomSize");
+         String inDateStr = (String) session.getAttribute("inDateStr");
+         String outDateStr = (String) session.getAttribute("outDateStr");
+*/         
+      </script>  
 	
 	<style>
 		body{background-color: #4444;}
@@ -36,10 +78,9 @@
     	ul.breadcrumb li a{color:rgb(38, 165, 181); text-decoration: none;}
     	ul.breadcrumb li a:hover{color: rgb(38, 165, 181); text-decoration: underline;}
     	.breadcrumb{display: flex; justify-content: center; width: 100%;}
-    	button{background-color: darkblue; color: white; width: fit-content; margin: auto}
     	.container{border: solid gray; height: fit-content; width: fit-content; padding: 5px 10px; justify-content: center; margin: auto; background-color: #eee;}
     	.form_container{height: fit-content; width: fit-content; padding: 50px 100px; justify-content: center; margin: auto;}
-    	.sub_container{height: fit-content; padding: 10px 50px; margin: auto;}
+    	.sub_container{height: fit-content; padding: 10px 5px; margin: auto;}
     	.header{text-align: center; border: solid gray; width: 100%; height: 50px; background-color: white;}
     	.footer{text-align: center; border: solid gray; width: 100%; height: 50px; position: fixed; right: 0; left: 0; bottom: 0; background-color: white;}
     	#message{display: none; color: #000; position: relative; padding: 20px; margin-top: 10px;}
@@ -246,7 +287,8 @@ footer {
     
 </head>
 
-<body onload = "ValidateLogIn()">
+<body>
+
 	<nav>
 	    <div class="navbar-container">
 	        <h2 class="hotel-title">Moffat Bay</h2>
@@ -279,71 +321,68 @@ footer {
 	<br><br>
 	
 <%System.out.println("entered jsp");%>
-<div id="onloadMessage"></div>
-<script type="text/javascript">
-	let onloadMessage = document.getElementById("onloadMessage");
-	document.addEventListener("DOMContentLoaded", validateLogIn());
-	function validateLogIn() {
-		System.out.println("entered function");
-		UserBean user = new UserBean();
-		//int userId = user.getId();
-		if(user != null){
-			document.getElementById("numGuests").focus();
-		} else {
-			alert("You have not logged in yet.")
-			}
-	}
-	
-
-</script>
-
 
 	<form action="/MoffatBay/reservation" method="post">
 	
-		<div class="container">
-  			<div class="form-container">
-  				<div class="sub_container">
-  					<div class="sub_container" style="float:left;">
-  			
-    					<label for="numGuests" data-success="">Select the number of guests:*  </label>
-							<select style="display: table-cell;" id="numGuests" name="numGuests" class="validateLogIn" required>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-							</select>
-					</div>
-					<div class="sub_container" style="float:right;">
-					
-						<label for="dropdown">Select room size:*</label>
-      						<select id="dropdown" name="roomSize" required>
-								<option value="double_full">Double Full Beds (Guests 1-4)</option>
-								<option value="queen">Queen Bed (Guests 1-2))</option>
-								<option value="double_queen">Double Queen Beds (Guests 1-5)</option>
-								<option value="king">King Bed (Guests 1-3)</option>
-							</select>
+		<div class="center-container">
+  			<div class="container">
+  				<div class="form-container">
+  					<div class="sub_container">
+<!-- numGuests Form -->  
+  						<div class="sub_container" style="float:left; padding:12px 0 25px 25px;">
+    						<label for="numGuests" data-success="">Select the number of guests:*  </label>
+								<select style="display: table-cell;" id="numGuests" name="numGuests" value="${numGuestsStr}" required>
+									<option value=""> </option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select>
+						</div>
+<!-- roomSize Form -->						
+						<div class="sub_container" style="float:right;">
+							<label for="roomSize">Select room size:*</label>
+      							<select id="roomSize" name="roomSize" value="${roomSize}" required>
+      								<option value=""> </option>
+									<option value="double_full">Double Full Beds (Guests 1-4)</option>
+									<option value="queen">Queen Bed (Guests 1-2))</option>
+									<option value="double_queen">Double Queen Beds (Guests 1-5)</option>
+									<option value="king">King Bed (Guests 1-3)</option>
+								</select>
 							<h3 style="color: red">${roomSizeError}</h3>
-					</div>
-				</div>
-				
-
-				<br><br><br>	
-					<h3 style="color: red">${noAvailability}</h3>
+						</div>
+				<br><br>
+<!-- Check-in Form -->
+					<div class="sub_container" style="float:left;">
+  						<p>Select your Check-in Date: <input type="text" id="datepick-1" name="inDate" value="${inDateStr}" onclick="hideError()"></p>
+  						<p>Your Check-in Date: <input type="text" id="datepick-2" size="35"></p>
+  					</div>
+<!-- Check-out Form -->
+  					<div class="sub_container" style="float:right;">
+			 			<p>Select your Check-out Date: <input type="text" id="datepick-3" name="outDate" value="${outDateStr}" onclick="hideError()"></p>
+  						<p>Your Check-out Date: <input type="text" id="datepick-4" size="35"></p>
+  					</div>
+  					<br>
+  					<div class="sub_container" style="margin-top: 100px; width: 500px; height: 50px; justify-content: center;">
+  					<h3 id="error_message" style="color: red; text-align: center;">${dateError}</h3>
+  					</div>
+				</div>		
+					<h3 id="error" style="color: red">${noAvailability}</h3>
+				<br>
 				<div class="container" style="border: none;">
 					<div class="sub_container">
 						<input type="submit" value="Check Availability" class="now-button">
-						<%System.out.println("sent to Servlet");%>
-						
+<%System.out.println("sent to Servlet");%>
 					</div>
 				</div>
-			</div>
+				
+				</div>
+			</div>	
 		</div>
 	</form>
-	<br><br>
-	<br><br><div class="container"><h3 style="color: red">${userIDError}</h3></div>
-	<br><br>
-	<br><br>
+	<div class="container" style="border: none; background-color: #4444;"><h3 style="color: red">${userIDError}</h3></div>
+	
 		
 	<div class="sub_container" style="bottom: 0; left: 0;">
 		* indicates required field
