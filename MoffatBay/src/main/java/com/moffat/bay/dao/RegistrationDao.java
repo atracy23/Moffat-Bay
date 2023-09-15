@@ -1,3 +1,13 @@
+/* Green Team MoffatBay Lodge Project
+	 Bellevue University
+	 October 2023
+	 Professor Sue Sampson
+	 Team members:	Ron Stewart
+					Rashmi Sathiyanarayanan
+					Joseph Youskievicz
+					Angie Tracy
+*/
+
 package com.moffat.bay.dao;
 
 import java.sql.Connection;
@@ -18,7 +28,7 @@ public class RegistrationDao {
 	
 	public RegistrationBean getRegisterInfo(String firstName, String lastName, String email, String phoneNum, String password) throws ClassNotFoundException, SQLException{
 		
-		//Creating objects to be returned depending on whether user was updated in database table or not
+		//Creating objects to be returned depending on whether user was located in database table or not
 		RegistrationBean register = null;
 		RegistrationBean newUser = new RegistrationBean(firstName, lastName, email, phoneNum, password);
 		
@@ -28,6 +38,7 @@ public class RegistrationDao {
 		PreparedStatement createUserStatement = null;
 		
 		try {
+			
 			dbConn = dbConnection();
 			
 			String getEmailQuery = "SELECT lastName FROM users WHERE email = ?";
@@ -39,7 +50,7 @@ public class RegistrationDao {
 			//if email does exist in db user table
 			if(emailResult.next()) {
 				return register;
-			}
+			} 
 
 			//email does not exist currently - adding user info to user table
 			String encryptedPassword = PasswordHash.hash(password);
@@ -54,8 +65,6 @@ public class RegistrationDao {
 			createUserStatement.setString(5, encryptedPassword);
 			userResult = createUserStatement.executeUpdate();
 			
-			System.out.println("updated db on Dao");
-
 			return newUser;
 			
 		}finally {
