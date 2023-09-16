@@ -462,6 +462,7 @@
                         <h3>Account</h3>
                         <ul>
                             <li><a href="login.jsp">Login</a></li>
+                            <li><a href="registration.jsp">Create an Account</a></li>
                         </ul>
                     </div>
                 </div>
