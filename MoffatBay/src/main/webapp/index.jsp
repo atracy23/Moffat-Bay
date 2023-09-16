@@ -249,7 +249,7 @@
                     margin: 0 auto;
                     margin-top: -80px;
                     /* Negative margin to move the container up by its height */
-                    background-color: #555;
+                    background-color: #26a5b5;
                     padding: 20px;
                     z-index: 1;
                     /* Ensure it's above the image */
@@ -274,7 +274,7 @@
                     margin: 0 auto;
                     margin-bottom: -80px;
                     /* Negative margin to move the container up by its height */
-                    background-color: #555;
+                    background-color: #26a5b5;
                     padding: 20px;
                     z-index: 1;
                     /* Ensure it's above the image */
