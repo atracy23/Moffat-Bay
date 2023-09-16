@@ -73,10 +73,6 @@
 												</script>
 
 												<style>
-													body {
-														background-color: #4444;
-													}
-
 													h1 {
 														text-align: center;
 														text: bold;
