@@ -14,30 +14,62 @@
             <title>Moffat Bay</title>
 
             <style>
+                /* Reset some default styles */
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                    font-family: 'Raleway', sans-serif;
+                    /* Apply Raleway font to all text */
+                }
+
+                /* Global styles */
+                body {
+                    background-color: #f0f0f0;
+                    /* Lighter background color */
+                }
+
+                /* Navigation bar styles */
                 ul.navbar {
                     list-style: none;
                     padding: 0;
                     margin: 0;
-                    background-color: #333;
+                    background-color: #26a5b5;
+                    /* Teal navbar color */
+                    display: flex;
+                    /* Add flex display for positioning elements */
+                    align-items: center;
+                    /* Vertically center elements */
                 }
 
-                /* Main navigation bar styles */
-                body {
-                    background-color: #4444;
-                }
-
-                /* Container for the menu */
                 .navbar-container {
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
                     padding: 15px 20px;
-                    background-color: #333;
+                    background-color: #26a5b5;
+                    /* Teal navbar color */
                     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
+                    width: 100%;
+                    /* Make the navbar full-width */
                 }
 
-                /* Menu styles */
+                /* Add a new div for the logo and image */
+                .logo {
+                    display: flex;
+                    align-items: center;
+                }
+
+                /* Style the logo image */
+                .logo img {
+                    width: 40px;
+                    /* Adjust the width as needed */
+                    height: 40px;
+                    /* Adjust the height as needed */
+                    margin-right: 10px;
+                    /* Add spacing between the logo and text */
+                }
+
                 ul.navbar li {
                     position: relative;
                     display: inline-block;
@@ -48,15 +80,19 @@
                     color: white;
                     text-decoration: none;
                     transition: color 0.3s ease-in-out;
+                    padding: 5px 10px;
+                    /* Add padding for better visual appearance */
+                }
 
+                ul.navbar li.active a {
+                    border: 2px solid white;
+                    /* Add a white outline for the active link */
                 }
 
                 ul.navbar li:hover a {
                     color: #f39c12;
-
                 }
 
-                /* Dropdown styles */
                 ul.navbar li ul {
                     display: none;
                     position: absolute;
@@ -68,13 +104,11 @@
                     border-radius: 4px;
                     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
                     transition: opacity 0.3s ease-in-out;
-
                 }
 
                 ul.navbar li:hover ul {
                     display: block;
                     opacity: 1;
-
                 }
 
                 ul.navbar li ul li {
@@ -89,12 +123,10 @@
                     display: block;
                     text-decoration: none;
                     transition: background-color 0.3s ease-in-out;
-
                 }
 
                 ul.navbar li ul li a:hover {
                     background-color: #555;
-
                 }
 
                 /* Hotel title styles */
@@ -102,13 +134,10 @@
                     color: white;
                     margin: 0;
                     font-size: 34px;
-
                     font-weight: bold;
-                    font-family: 'Jim Nightshade', 'Arial', sans-serif;
-
                     padding: 8px;
-
                 }
+
 
                 /* Login button styles */
                 .login-button {
@@ -122,6 +151,11 @@
                     border: 2px solid rgb(38, 165, 181);
                     border-radius: 4px;
                     transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+                    background-color: #26a5b5;
+                    /* Teal background color for the button */
+                    font-size: 18px;
+                    color: white;
+                    cursor: pointer;
                 }
 
                 .login-button a:hover {
@@ -129,6 +163,24 @@
                     color: #333;
                     border-color: transparent;
                 }
+
+                .login-now-button {
+                    background-color: rgb(38, 165, 181);
+                    color: white;
+                    padding: 15px 30px;
+                    /* Increase padding for a larger button */
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    font-size: 18px;
+                    margin-top: 15px;
+                    /* Add spacing at the top */
+                }
+
+                .login-now-button:hover {
+                    color: #f39c12;
+                }
+
 
                 /* Hero part of the landing page */
                 .Hero img {
@@ -239,11 +291,14 @@
                     display: block;
                 }
 
-                /* styling for the footer */
+                /* Footer styles */
                 footer {
-                    background-color: #333;
+                    background-color: #26a5b5;
+                    /* Teal background color */
                     color: white;
                     padding: 30px 0;
+                    margin-top: 20px;
+                    /* Add spacing at the top */
                 }
 
                 .footer-content {
@@ -258,6 +313,8 @@
                     width: 25%;
                     padding: 0 15px;
                     box-sizing: border-box;
+                    text-align: center;
+                    /* Center text within each div */
                 }
 
                 .footer-section h3 {
@@ -287,6 +344,7 @@
                 .footer-bottom {
                     text-align: center;
                     margin-top: 20px;
+                    /* Add spacing at the top */
                     padding-top: 10px;
                     border-top: 1px solid #555;
                 }
@@ -300,7 +358,10 @@
         <body>
             <nav>
                 <div class="navbar-container">
-                    <h2 class="hotel-title">Moffat Bay</h2>
+                    <div class="logo">
+                        <img src="Landing_images/Landing_images/LOGO.jpeg" alt="Logo">
+                        <h2 class="hotel-title">Moffat Bay</h2>
+                    </div>
                     <ul class="navbar">
                         <li><a href="#">Home</a></li>
                         <li><a href="Aboutus.jsp">About</a></li>
