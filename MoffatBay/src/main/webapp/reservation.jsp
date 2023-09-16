@@ -438,7 +438,11 @@
 
 												<nav>
 													<div class="navbar-container">
-														<h2 class="hotel-title">Moffat Bay</h2>
+														<div class="logo">
+															<img src="Landing_images/Landing_images/LOGO.jpeg"
+																alt="Logo">
+															<h2 class="hotel-title">Moffat Bay</h2>
+														</div>
 														<ul class="navbar">
 															<li><a href="index.jsp">Home</a></li>
 															<li><a href="#">About</a></li>
