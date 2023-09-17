@@ -350,7 +350,7 @@
                                     <ul>
                                         <li><a href="reservation.jsp">Book a Reservation</a></li>
                                         <li><a href="#">Reservation Look up</a></li>
-                                        <li><a href="register.jsp">Create an Account</a></li>
+                                        <li><a href="registration.jsp">Create an Account</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#">Contact</a></li>
