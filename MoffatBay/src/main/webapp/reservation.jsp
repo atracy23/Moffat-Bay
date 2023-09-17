@@ -75,7 +75,7 @@
 												<style>
 													h1 {
 														text-align: center;
-														text: bold;
+														font-weight: bold;
 													}
 
 													img {
@@ -435,8 +435,7 @@
 												<nav>
 													<div class="navbar-container">
 														<div class="logo">
-															<img src="Landing_images/Landing_images/LOGO.jpeg"
-																alt="Logo">
+															<img src="Landing_images/LOGO.jpeg" alt="Logo">
 															<h2 class="hotel-title">Moffat Bay</h2>
 														</div>
 														<ul class="navbar">
