@@ -1,27 +1,51 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- 
-<%@ page import="java.sql.*" %>
-<%@ page import="com.moffat.bay.*" %> 
+<!-- Green Team MoffatBay Lodge Project
+	 Bellevue University
+	 October 2023
+	 Professor Sue Sampson
+	 Team members:	Ron Stewart
+					Rashmi Sathiyanarayanan
+					Joseph Youskievicz
+					Angie Tracy
+ -->
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="com.moffat.bay.model.UserBean"%>
+<%@ page import="com.moffat.bay.model.RegistrationBean"%>
+<%@ page import="com.moffat.bay.model.ReservationBean"%>
+<%@ page import="com.moffat.bay.controller.RegistrationServlet"%>
+<%@ page import="com.moffat.bay.util.PasswordHash"%>
+<%@ page import="javax.servlet.http.HttpServlet"%>
+<%@ page import="javax.servlet.http.HttpServletRequest"%>
+<%@ page import="javax.servlet.http.HttpServletResponse"%>
+<%@ page import="javax.servlet.http.HttpSession"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="home_css.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-  
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&family=Jim+Nightshade&display=swap"
-        rel="stylesheet">
-        
-<title>Registration Page</title>
-
-	<style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Look-Up Page</title>
 	
+	<link rel="stylesheet" href="/MoffatBay/com/WebContent/css/reservations.css"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+	
+	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>  
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
+    
+
+<style type="text/css">
+
 		/* Reset some default styles */
-        * {
+        {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -32,12 +56,7 @@
         body {
             background-color: #f0f0f0; /* Lighter background color */
         }
-/*        
-        .body-container{*/ /* Creates scrollbar */
-/*        height: 550px; 
-        overflow: auto;
-        }
-*/
+
         /* Navigation bar styles */
         ul.navbar {
             list-style: none;
@@ -137,58 +156,100 @@
             font-weight: bold;
             padding: 8px;
         }
-        
-        /* Breadcrum styles */
-        ul.breadcrumb{
-    	padding: 10px 16px; 
-    	list-style: none; 
-    	background-color: #26a5b5;
-    	}
-    	
-    	ul.breadcrumb li{
-    	display: inline; 
-    	font-size: 18px;
-    	}
-    	
-    	ul.breadcrumb li+li:before{
-    	padding: 8px; 
-    	color: white; 
-    	content: "/\00a0";
-    	}
-    	
-    	ul.breadcrumb li a{
-    	color: white; 
-    	text-decoration: none;
-    	}
-    	
-    	ul.breadcrumb li a:hover{
-    	color: #01447e; 
-    	text-decoration: underline;
-    	}
-    	
-    	.breadcrumb{
-    	display: flex; 
-    	justify-content: center; 
-    	width: 100%;
-    	}
-    	
-    	.button{
-    	background-color: rgb(38, 165, 181); 
-    	color: white; 
-    	padding: 10px 20px; 
-    	border: none; 
-    	border-radius: 4px; 
-    	cursor: pointer; 
-    	font-size: 18px;
-    	}
-    	
+
         .center-container {
             text-align: center;
             margin-top: 20px; /* Add spacing at the top */
-            margin-bottom: 1px; /* Add spacing at the bottom */
+            margin-bottom: 10px; /* Add spacing at the bottom */
         }
 
-        /* Form styles */
+		.body-container{
+		height: 500px; 
+		overflow: auto;
+		}
+		
+    	.container{
+        border: solid gray; 
+        height: fit-content; 
+        width: fit-content; 
+        padding: 5px 20px; 
+        justify-content: space-around; 
+        margin: auto; 
+        overflow: auto;
+        }
+        
+    	.form-container{
+    	height: fit-content; 
+    	width: fit-content; 
+    	padding: 5px 20px; 
+    	justify-content: space-around; 
+    	margin: auto;
+    	}
+    	
+    	.grid-container >div{
+    	text-align: center, padding: 20px 0; 
+    	font-size: 20px;
+    	}
+    	
+    	.grid-container{
+    	display: grid; 
+    	grid-template-columns: 25% 25% 25% 25%); 
+    	grid-template-rows: auto auto auto auto auto auto; 
+    	gap: 5px; 
+    	padding: 5px;
+    	}
+    	
+    	#blank{
+    	grid-column: 1; 
+    	grid-row: 1;
+    	}
+    	
+    	#entries{
+    	grid-column: 2; 
+    	grid-row: 1;
+    	}
+    	
+    	#roomLabel{
+    	grid-column: 1; 
+    	grid-row: 2;
+    	}
+    	
+    	#roomSize{
+    	grid-column: 2; 
+    	grid-row: 2;
+    	}
+    	
+    	#guestsLabel{
+    	grid-column: 1; 
+    	grid-row: 3;
+    	}
+    	
+    	#numGuests{
+    	grid-column: 2; 
+    	grid-row: 3;
+    	}
+    	
+    	#inDateLabel{
+    	grid-column: 1; 
+    	grid-row: 4;
+    	}
+    	
+    	#inDate{
+    	grid-column: 2; 
+    	grid-row: 4;
+    	}
+    	
+    	#outDateLabel{
+    	grid-column: 1; 
+    	grid-row: 5;
+    	}
+    	
+    	#outDate{
+    	grid-column: 2; 
+    	grid-row: 5;
+    	}
+    	
+    	/* Form styles */
         form {
             display: inline-block;
             text-align: center;
@@ -197,8 +258,9 @@
         }
 
         label {
+        	font-family: 'Raleway', sans-serif;
             display: block;
-           /* margin-bottom: 1px; *//* Add more spacing below labels */
+            margin-bottom: 0px; /* Add more spacing below labels */
         }
 
         input[type="text"],
@@ -211,17 +273,27 @@
             box-sizing: border-box;
             font-family: 'Raleway', sans-serif; /* Apply Raleway font to text inputs */
         }
-   
+
+		.button{
+		background-color: rgb(38, 165, 181); 
+		color: white; 
+		padding: 10px 20px; 
+		border: none; 
+		border-radius: 4px; 
+		cursor: pointer; 
+		font-size: 18px;
+		}
+
         /* Footer styles */
         footer {
             background-color: #26a5b5; /* Teal background color */
             color: white;
-            width: 100%;
-            height: 175px;
-            position: fixed;
-            bottom: 0;
             padding: 30px 0;
             margin-top: 20px; /* Add spacing at the top */
+            position: fixed; 
+            right: 0; 
+            left: 0; 
+            bottom: 0;
         }
 
         .footer-content {
@@ -279,17 +351,23 @@
             font-size: 18px; /* Change the font size as needed */
         }
 
-    </style>
+</style>
 
+	<script>
+		
+	</script>
 </head>
 <body>
-	<nav>
+<jsp:useBean id="reservation" class="com.moffat.bay.model.ReservationBean"/>
+
+
+<nav>
 	    <div class="navbar-container">
 	        <h2 class="hotel-title">Moffat Bay</h2>
 	        <ul class="navbar">
 	            <li><a href="index.jsp">Home</a></li>
-	            <li><a href="Aboutus.jsp">About</a></li>
-	            <li><a href="#">Attractions</a> </li>
+	            <li><a href="aboutus.jsp">About Us</a></li>
+	            <li><a href="attractions.jsp">Attractions</a> </li>
 	
 	            <li>
 	                <a href="reservation.jsp">Reservation</a>
@@ -304,51 +382,55 @@
 	    </div>
 
     </nav>
-	<h1>Registration Page</h1>
-	<ul class="breadcrumb">
-		<li>Registration</li>
-		<li><a href="login.jsp">LogIn</a></li>
-		<li><a href="reservation.jsp">Reservation</a></li>
-		<li><a href="summary.jsp">Reservation Summary</a></li>
-	</ul>
-	<br><br>
+    <br>
+	<h1 style="text-align: center;">Reservation Look-Up Page</h1>
+		<br><br>
+	
 <div class="body-container">	
-	<div class="center-container">
-		<form action="/MoffatBay/register" method="post">
+	
+	<div class="container">
+		<div class="center-container">	
+			<form action="/MoffatBay/lookup" method="post">	
+				
+				<label for="reserveID" id="inputLabel">Please enter the Reservation ID or user email address to locate previous reservation information:</label>
+				<input type="text" id="reserveID" name="reserveID" value="${id}" required>
+				<input type="submit" style="justify-content: center;" id="reservationButton" name="ReservationButton" value="Get Reservation Information" class="button">
+				
+			</form>
+				<p style="max-width: 400px; color: red;"><b>${idErrorMessage}</b></p>
+			<div class="grid-container">
+				<c:if test="${roomSize!=null}">
+				
+				<label for="entries" id="blank"></label>
+				<div id="entries"><c:out value="${current}"/><c:if test="${current!=null}"> of </c:if><c:out value="${size}"/></div><br>
+				
+				<label for="roomSize" id="roomLabel">Room Size:</label>
+				<div id="roomSize"><c:out value="${roomSize}"/></div><br>
+				
+				<label for="numGuests" id="guestsLabel">Number of Guests:</label>
+				<div id="numGuests"><c:out value="${numGuests}"/></div><br>
+				
+				<label for="inDate" id="inDateLabel">Check-in Date:</label>
+				<div id="inDate"><c:out value="${inDate}"/></div><br>
+				
+				<label for="outDate" id="outDateLabel">Check-out:</label>
+				<div id="outDate"><c:out value="${outDate}"/></div>
+				</c:if>
+			</div>	
 			
-			<label for="firstName">Enter your first name:*</label>
-			<input type="text" id="firstName" name="firstName" value="${param.firstName}" required>
-				
-			<label for="lastName">Enter your last name:*</label>
-			<input type="text" id="lastName" name="lastName" value="${param.lastName}" required>
-				
-			<label for="email">Enter your email address:*</label>
-			<input type="text" id="email" name="email" value="${param.email}" required>
-				
-			<label for="phoneNum">Enter your phone number:*</label>
-			<input type="text" id="phoneNum" name="phoneNum" value="${param.phoneNum}" required>
-				
-			<label for="password">Create a password:*</label>
-			<input type="password" name="password" id="password" value="${param.password}" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number,
-				 one uppercase letter, one lowercase letter, and at least 8 or more characters" required>
-				
-			<label for="confirmPassword" data-success="">Please confirm password:*</label>
-			<input type="password" id="confirmPassword" name="confirmPassword" value="${param.password}" class="validate" required >
-			<h3 style="color: red">${passwordMatchError}</h3>
-						
-			<input type="submit" class="button" value="Sign Up" style="margin: auto;"><br><br>
-			
-		</form>
-		<br>
-		<h3 style="color: red">${message}</h3>
-				
-		<p>Already have an account? <a href="login.jsp"> Login</a></p>
-	</div>
-	<div class="required">
-		* indicates required field
+				<form action="/MoffatBay/lookup" method="get">
+					<input type="hidden" name="counter" id="counter" value="${counter}">
+					
+					<c:if test="${current > 1 && current <= size}">
+					<input type="submit" id="backButton" value="Back" name="decrement" class="button">
+					</c:if>
+					<c:if test="${numGuests > 0 && current < size}">
+					<input type="submit" id="nextButton" value="Next" name="increment" class="button">
+					</c:if>
+				</form>
+		</div>
 	</div>
 </div>
-	<br>
 	<footer>
 	    <div class="footer-content">
 	        <div class="footer-section">

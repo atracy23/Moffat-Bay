@@ -12,7 +12,7 @@ import java.lang.String;
 
 import com.moffat.bay.dao.RegistrationDao;
 import com.moffat.bay.model.RegistrationBean;
-import com.moffat.bay.util.Validations;
+import com.moffat.bay.util.ValidatePassword;
 
 import java.sql.SQLException;
 
@@ -43,7 +43,7 @@ public class RegistrationServlet extends HttpServlet {
 		String confirmPassword = request.getParameter("confirmPassword");
 		
 		RegistrationDao registerDao = new RegistrationDao();
-		Validations validate = new Validations();
+		ValidatePassword validate = new ValidatePassword();
 		
 		if(validate.confirmMatch(password, confirmPassword)==false) {
 			String passwordMatchError = "Password entries must match.  Please try again.";
