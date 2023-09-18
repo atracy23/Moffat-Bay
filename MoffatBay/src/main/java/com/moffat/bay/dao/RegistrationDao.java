@@ -1,13 +1,3 @@
-/* Green Team MoffatBay Lodge Project
-	 Bellevue University
-	 October 2023
-	 Professor Sue Sampson
-	 Team members:	Ron Stewart
-					Rashmi Sathiyanarayanan
-					Joseph Youskievicz
-					Angie Tracy
-*/
-
 package com.moffat.bay.dao;
 
 import java.sql.Connection;
@@ -28,7 +18,7 @@ public class RegistrationDao {
 	
 	public RegistrationBean getRegisterInfo(String firstName, String lastName, String email, String phoneNum, String password) throws ClassNotFoundException, SQLException{
 		
-		//Creating objects to be returned depending on whether user was located in database table or not
+		//Creating objects to be returned depending on whether user was updated in database table or not
 		RegistrationBean register = null;
 		RegistrationBean newUser = new RegistrationBean(firstName, lastName, email, phoneNum, password);
 		
