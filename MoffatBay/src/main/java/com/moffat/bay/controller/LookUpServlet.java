@@ -209,7 +209,11 @@ public class LookUpServlet extends HttpServlet implements Serializable  {
 		} catch (SQLException e) {
 		// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} catch (NumberFormatException e) {
+			String idEntryError = "Please enter a valid Reservation ID or email.";
+			request.setAttribute("idErrorMessage", idEntryError);
+			RequestDispatcher rd = request.getRequestDispatcher("/lookup.jsp");
+			rd.forward(request, response);
 			
 }
 	
