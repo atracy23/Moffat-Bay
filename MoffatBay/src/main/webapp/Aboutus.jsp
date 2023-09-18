@@ -573,8 +573,8 @@
             <div class="footer-section">
                 <h3>Reservations</h3>
                 <ul>
-                    <li><a href="#">Book Now</a></li>
-                    <li><a href="#">Reservation Look up</a></li>
+                    <li><a href="reservation.jsp">Book Now</a></li>
+                    <li><a href="lookup.jsp">Reservation Look up</a></li>
                 </ul>
             </div>
             <div class="footer-section">
