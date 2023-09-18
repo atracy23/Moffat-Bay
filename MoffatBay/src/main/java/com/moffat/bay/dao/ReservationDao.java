@@ -15,166 +15,105 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
-import java.sql.Array;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-
-/*import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.time.ZoneId;
-*/
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import java.time.*;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.sql.*;
-import java.math.*;
-//import java.util.Date;
-import org.apache.commons.dbutils.*;
-import org.apache.commons.dbutils.handlers.*;
-import java.text.DecimalFormat;
 
-
-
-import com.moffat.bay.model.ReservationBean;
-import com.moffat.bay.util.*;
+import com.moffat.bay.model.*;
 
 public class ReservationDao {
-	Date inDate;
-	Date outDate;
-	
 	
 	public ReservationDao() {
 		
 	}
-	public void getData(HttpServletRequest request) {
-		String inDateStr = (String)request.getAttribute("inDateStr");
-		String outDateStr = (String)request.getAttribute("outDateStr");
-		
-		//Converting data types on string attributes
-		Date inDate = java.sql.Date.valueOf(inDateStr);
-		Date outDate = java.sql.Date.valueOf(outDateStr);
-		
-		this.inDate = inDate;
-		this.outDate = outDate;
-		
-	}
 	
-	public class AvailableRoomsArrayList{
-		public static ArrayList<Object> availableRoomsArrayList = new ArrayList<Object>();
-	}
-
-	public ReservationBean getRoom(String roomSize, int roomNum, int maxOccup, String price, Date date) throws ClassNotFoundException, SQLException {
-	
-System.out.println("entered Dao");
-		//Initializing new variables
-		//Date currentDate = new Date();
-		java.sql.Date dates = new java.sql.Date(System.currentTimeMillis());
-		
-		//Creating objects to be returned depending on whether there were rooms Available
-		ReservationBean noAvailableReservations = null;
-		ReservationBean availableReservations = new ReservationBean(roomSize, roomNum, maxOccup, price, dates);
-		
+	public ArrayList<Integer> fetchRoom(ReservationBean reservationBean) throws SQLException, ClassNotFoundException {
 		Connection dbConn = null;
-		PreparedStatement checkRoom = null;
-		ResultSet roomDB = null;
-		PreparedStatement updateRoom = null;
-		ResultSet updatingRoom = null;
+		PreparedStatement roomStatement = null;
+		ResultSet roomResult = null;
+		
+		System.out.println("Entered Dao");
 		
 		try {
-System.out.println("entered try on Dao");
-	
+			
 			dbConn = dbConnection();
 			
-			String checkAvailability = "SELECT roomNum FROM rooms WHERE roomSize = ?";
-			checkRoom = dbConn.prepareStatement(checkAvailability);
-			checkRoom.setDate(1, dates);
+			ArrayList<Integer> userResult = new ArrayList<Integer>();
 			
-/*			
-			String checkAvailability = "SELECT currentDate, roomNum, maxOccup, price FROM rooms WHERE currentDate BETWEEN inDate AND outDate AND roomSize = ? AND available = true";
+			String fetchAvailableRoom = "SELECT roomNum FROM rooms WHERE currentDate BETWEEN ? AND ? AND roomSize = ? AND maxOccup >= ? AND available = '1'";
+			roomStatement = dbConn.prepareStatement(fetchAvailableRoom);
+
+			roomStatement.setDate(1, reservationBean.getInDate());
+			roomStatement.setDate(2, reservationBean.getOutDate());
+			roomStatement.setString(3, reservationBean.getRoomSize());
+			roomStatement.setInt(4, reservationBean.getNumGuests());
+
+			roomResult = roomStatement.executeQuery();
 			
-			checkRoom = dbConn.prepareStatement(checkAvailability);
-			checkRoom.setDate(1, dates);
-			checkRoom.setInt(2, roomNum);
-			checkRoom.setInt(3, maxOccup);
-			checkRoom.setString(4, price);
-			roomDB = checkRoom.executeQuery();
-*/
-System.out.println("executed Query on Dao");
-
-/*			
-			QueryRunner run = new QueryRunner();
-			ResultSetHandler<ReservationBean> resultHandler = new BeanHandler<ReservationBean>(ReservationBean.class);
-			
-			try {
-				reservation = run.query(dbConn,"SELECT currentDate AND roomNum AND maxOccup AND price FROM reservations"  
-					+ " WHERE currentDate >= inDate=? AND currentDate <= outDate=? AND roomSize = ? AND availability = TRUE", resultHandler);
-
-				QueryRunner run = new QueryRunner(dataSource);
-			List<Person> personList = run.query("SELECT currentDate AND roomNum AND maxOccup AND price FROM reservations"
-					+ " WHERE currentDate >= inDate=? AND currentDate <= outDate=? AND roomSize = ? AND availability = TRUE", new BeanListHandler<>(Person.class));
-			
-
-			if(numGuests > maxOccup) maxOccup = 0;
-			BeanProcessor bp = new BeanProcessor();
-			reservation = bp.toBean(roomDB, ReservationBean.class);
-*/
-
-			ArrayList<Object> availableRooms = new ArrayList<Object>();
-
+			while (roomResult.next()) {
+	        	userResult.add(roomResult.getInt("roomNum")); // Get the roomNum from the ResultSet
+	        }
+	        
+	        System.out.println("Room number retrieved: "+userResult);
+	        return userResult;
 
 			
-			if(roomDB.next()) {//there are available rooms
-/*				
-				dates = roomDB.getDate("dates");
-				roomNum = roomDB.getInt("roomNum");
-				maxOccup = roomDB.getInt("maxOccup");
-				price = roomDB.getBigDecimal("price");
-*/	
-				
-	
-				//roomNumArray.add(roomNum);
-				//availableRooms.add(dates);
-				availableRooms.add(roomNum);
-				//availableRooms.add(maxOccup);
-				//availableRooms.add(price);
-		
-				return availableReservations;
-				
-			} else {//there are no available rooms
-				return noAvailableReservations;
-			}
-			
-			if(int i = 101; i <= 315; i++) {
-				int frequency = Collections.frequency(availableRooms, i);
-				if(frequency == numDays) {
-					roomNum = i;
-					break;
-				}
-			}
-			
-			
-//System.out.println("created ArrayList on Dao");	
-			
-			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}finally {
-			if(null!=roomDB) {
-				roomDB.close();
+			if(roomStatement != null) {
+				roomStatement.close();
+			}
+			if(dbConn != null) {
+				dbConn.close();
+			}
+			
 		}
-				
-		checkRoom.close();
-		dbConn.close();
+		return null;
+
 	}
 	
+	public int updateRooms(ReservationBean reservationBean) throws SQLException, ClassNotFoundException {
+		Connection dbConn = null;
+		PreparedStatement roomStatement = null;
+		ResultSet roomResult = null;
+		
+		try {
+			
+			dbConn = dbConnection();
+			
+			int roomUpdateRows;
+			
+			String updateRooms = "UPDATE rooms SET available = 'false' WHERE roomNum = ? AND currentDate BETWEEN ? AND ? "; 
+			roomStatement = dbConn.prepareStatement(updateRooms);
+			roomStatement.setInt(1, reservationBean.getRoomNum());
+			roomStatement.setDate(2, reservationBean.getInDate());
+			roomStatement.setDate(3, reservationBean.getOutDate());
+			roomUpdateRows = roomStatement.executeUpdate();
+			
+			System.out.println("Room table updated with number rows "+ roomUpdateRows);	
+			
+			return roomUpdateRows;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if(roomStatement != null) {
+				roomStatement.close();
+			}
+			if(dbConn != null) {
+				dbConn.close();
+			}
+			
+		}
+		
+		return 0;
 	}
-	public Connection dbConnection() throws ClassNotFoundException, SQLException{
+	
+
+
+	
+	public Connection dbConnection() throws ClassNotFoundException, SQLException {
         String dbUrl = "jdbc:mysql://localhost:3306/moffat_bay";
         String dbUsername = "root";
         String dbPassword = "root";
@@ -184,12 +123,5 @@ System.out.println("executed Query on Dao");
 
         return conn;
 	}
+
 }
-
-		
-			
-
-
-		
-	
-

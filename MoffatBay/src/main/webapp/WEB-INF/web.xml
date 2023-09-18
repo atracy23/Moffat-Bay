@@ -14,8 +14,40 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>SummaryServlet</servlet-name>
+        <servlet-class>com.moffat.bay.controller.SummaryServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>SummaryServlet</servlet-name>
+        <url-pattern>/summary</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ReservationServlet</servlet-name>
+        <servlet-class>com.moffat.bay.controller.ReservationServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>ReservationServlet</servlet-name>
+        <url-pattern>/reservation</url-pattern>
     </servlet-mapping> 
     
+    <servlet>
+        <servlet-name>LookUpServlet</servlet-name>
+        <servlet-class>com.moffat.bay.controller.LookUpServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>LookUpServlet</servlet-name>
+        <url-pattern>/lookup</url-pattern>
+    </servlet-mapping> 
+    
+
     <servlet>
     	<servlet-name>default</servlet-name>
     	<servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>

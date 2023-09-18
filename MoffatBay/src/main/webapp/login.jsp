@@ -1,3 +1,12 @@
+<!-- Green Team MoffatBay Lodge Project
+	 Bellevue University
+	 October 2023
+	 Professor Sue Sampson
+	 Team members:	Ron Stewart
+					Rashmi Sathiyanarayanan
+					Joseph Youskievicz
+					Angie Tracy
+ -->
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
     <%@ page import="java.sql.*" %>
         <%@ page import="com.moffat.bay.*" %>
@@ -290,7 +299,7 @@
                     <nav>
                         <div class="navbar-container">
                             <div class="logo">
-                                <img src="Landing_images/Landing_images/LOGO.jpeg" alt="Logo">
+                                <img src="Landing_images/LOGO.jpeg" alt="Logo">
                                 <h2 class="hotel-title">Moffat Bay</h2>
                             </div>
                             <ul class="navbar">
