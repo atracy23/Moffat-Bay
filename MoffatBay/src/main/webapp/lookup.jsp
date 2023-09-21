@@ -75,6 +75,8 @@
             background-color: #26a5b5; /* Teal navbar color */
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             width: 100%; /* Make the navbar full-width */
+            margin-top: 0;
+            margin-left: 0;
         }
 
         /* Add a new div for the logo and image */
@@ -359,27 +361,31 @@
 </head>
 <body>
 
-	<nav>
-	    <div class="navbar-container">
-	        <h2 class="hotel-title">Moffat Bay</h2>
-	        <ul class="navbar">
-	            <li><a href="index.jsp">Home</a></li>
-	            <li><a href="aboutus.jsp">About Us</a></li>
-	            <li><a href="#">Attractions</a> </li>
-	
-	            <li>
-	                <a href="reservation.jsp">Reservation</a>
-	                <ul>
-	                    <li><a href="reservation.jsp">Book a Reservation</a></li>
-	                    <li><a href="lookup.jsp">Reservation Look up</a></li>
-	                    <li><a href="registration.jsp">Create an Account</a></li>
-	                </ul>
-	            </li>
-	            <li class="login-button"><a href="login.jsp">Login</a></li>
-	        </ul>
-	    </div>
+                   <nav>
+                        <div class="navbar-container">
+                            <div class="logo">
+                                <img src="Landing_images/LOGO.jpeg" alt="Logo">
+                                <h2 class="hotel-title">Moffat Bay</h2>
+                            </div>
+                            <ul class="navbar">
+                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="Aboutus.jsp">About</a></li>
+                                <li><a href="#">Attractions</a> </li>
 
-    </nav>
+                                <li>
+                                    <a href="reservation.jsp">Reservation</a>
+                                    <ul>
+                                        <li><a href="reservation.jsp">Book a Reservation</a></li>
+                                        <li><a href="lookup.jsp">Reservation Look up</a></li>
+                                        <li><a href="registration.jsp">Create an Account</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Contact</a></li>
+                                <li class="login-button"><a href="login.jsp">Login</a></li>
+                            </ul>
+                        </div>
+
+                    </nav>
   <jsp:useBean id="reservation" class="com.moffat.bay.model.ReservationBean"/>
     <br>
 	<h1 style="text-align: center;">Reservation Look-Up Page</h1>
