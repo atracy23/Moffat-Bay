@@ -1,3 +1,13 @@
+<!-- Green Team MoffatBay Lodge Project
+	 Bellevue University
+	 October 2023
+	 Professor Sue Sampson
+	 Team members:	Ron Stewart
+					Rashmi Sathiyanarayanan
+					Joseph Youskievicz
+					Angie Tracy
+ -->
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
