@@ -40,14 +40,17 @@
 
         /* Global styles */
         body {
-            background-color: #f0f0f0; /* Lighter background color */
+            background-color: #f0f0f0;
+             height: 1000px; 
+        	 overflow: scroll;
+
         }
-/*        
-        .body-container{*/ /* Creates scrollbar */
-/*        height: 550px; 
-        overflow: auto;
+        
+        h1{
+        	text-align: center;
+        	padding: 5px;
         }
-*/
+
         /* Navigation bar styles */
         ul.navbar {
             list-style: none;
@@ -148,6 +151,7 @@
             padding: 8px;
         }
         
+       
         /* Breadcrum styles */
         ul.breadcrumb{
     	padding: 10px 16px; 
@@ -299,7 +303,7 @@
 	        <ul class="navbar">
 	            <li><a href="index.jsp">Home</a></li>
 	            <li><a href="Aboutus.jsp">About</a></li>
-	            <li><a href="#">Attractions</a> </li>
+	            <li><a href="attractions.jsp">Attractions</a> </li>
 	
 	            <li>
 	                <a href="reservation.jsp">Reservation</a>
@@ -357,7 +361,7 @@
 	<div class="required">
 		* indicates required field
 	</div>
-</div>
+</div>	
 	<br>
 	<footer>
 	    <div class="footer-content">
@@ -392,6 +396,6 @@
 	        <p>&copy; 2023 Moffat Bay Resort. All rights reserved.</p>
 	    </div>
 	</footer>
-	
+
 </body>
 </html>

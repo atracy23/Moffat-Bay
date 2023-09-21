@@ -38,7 +38,7 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>  
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
       <!-- Javascript -->  
-      <script>  
+      <script type="text/javascript">  
          $(function() {  
             $( "#datepick-1" ).datepicker({  
                //appendText:"(yy-mm-dd)",  
@@ -61,6 +61,47 @@
          }
          
          console.log(select.options[select.selectedIndex].value);
+         
+         function roomSizeError(){
+        	System.out.print("entered script roomSizeError function on jsp page"); 
+        	int double_full_max = 4;
+         	int queen_max = 2;
+         	int double_queen_max = 5;
+         	int king_max = 3;
+         	Boolean answer = true;
+         	
+         	// Verify the number of guests does not exceed the maximum occupancy for room size selection
+         	String roomSize = getElementById("roomSize").value;
+         	int numGuests = getElementById("numGuests").value;
+         	document.reservationForm.submit();
+         	System.out.println=("script function roomSizeError: roomSize = "+roomSize+ " numGuests = " +numGuests);
+         	switch(roomSize) {
+         	
+         	case "Double Full":
+         		if(numGuests > double_full_max) {
+         			answer = false;
+         		}
+         		break;
+         	case "Queen":
+         		if(numGuests > queen_max) {
+         			answer = false;
+         		}
+         		break;
+         	case "Double Queen":
+         		if(numGuests > double_queen_max) {
+         			answer = false;
+         		}
+         		break;
+         	default:
+         		if(numGuests > king_max) {
+         			answer = false;
+         		}
+         		break;
+         	}
+         	if(answer == false){
+         		$.post('reservation.jsp'),{roomSizeError: "The size of room selected does not support the number of guests chosen.  Please select room size that will accommodate the number of guests chosen.""}
+         	}
+         }
  
       </script>  
 	
@@ -254,7 +295,6 @@
         }
         
         .container{
-        border: solid gray; 
         height: fit-content; 
         width: fit-content; 
         padding: 5px 10px; 
@@ -315,7 +355,7 @@
     	}
     	
     	.item6{
-    	grid-column: 1/span 4; 
+    	grid-column: 2/span 2; 
     	grid-row: 4;
     	max-width: 800px;
     	}
@@ -441,7 +481,7 @@
 	<br><br>
 	
 <div class="body_container" style="overflow-y: auto;">
-	<form action="/MoffatBay/reservation" method="post">
+	<form action="/MoffatBay/reservation" method="post" name="reservationForm">
 	
 		<div class="center-container" style="content-align: center;">
   			<div class="container">
@@ -449,7 +489,7 @@
   					<div class="grid-container">
 <!-- numGuests Form -->  
   						<div class="item1">
-    						<label for="numGuests" data-success="">Select the number of guests:*  </label>
+    						<label for="numGuests" data-success="">Select the number of guests (1-5):*  </label>
 								<select style="display: table-cell;" id="numGuests" name="numGuests" required>
 									<option value=""> </option>
 									<option value="1" ${param.numGuests == '1' ? 'selected' : '' }>1</option>
@@ -461,11 +501,11 @@
 						</div>
 <!-- roomSize Form -->						
 						<div class="item2">
-							<label for="roomSize">Select room size:*</label>
-      							<select id="roomSize" name="roomSize" value="${param.roomSize}" required>
+							<label for="roomSize">Select room size (Double Full, Queen, Double Queen, King):*</label>
+      							<select id="roomSize" name="roomSize" value="${param.roomSize}" onchange="return roomSizeError();" required>
       								<option value=""> </option>
 									<option value="Double Full" ${param.roomSize == 'Double Full' ? 'selected' : '' }>Double Full Beds (Guests 1-4)</option>
-									<option value="Queen" ${param.roomSize == 'Queen' ? 'selected' : '' }>Queen Bed (Guests 1-2))</option>
+									<option value="Queen" ${param.roomSize == 'Queen' ? 'selected' : '' }>Queen Bed (Guests 1-2)</option>
 									<option value="Double Queen" ${param.roomSize == 'Double Queen' ? 'selected' : '' }>Double Queen Beds (Guests 1-5)</option>
 									<option value="King" ${param.roomSize == 'King' ? 'selected' : '' }>King Bed (Guests 1-3)</option>
 								</select>
@@ -478,11 +518,11 @@
 						</c:if>
 <!-- Check-in Form -->
 					<div class="item4">
-  						<p>Select your Check-in Date:* <input type="text" id="datepick-1" name="inDate" value="${param.inDate}" onchange="hideError()" required></p>
+  						<p>Select your Check-in Date (type in Date year/month/day or use drop-down calendar):* <input type="text" id="datepick-1" name="inDate" value="${param.inDate}" onchange="hideError()" required></p>
   					</div>
 <!-- Check-out Form -->
   					<div class="item5">
-			 			<p>Select your Check-out Date:* <input type="text" id="datepick-3" name="outDate" value="${param.outDate}" onchange="hideError()" required></p>
+			 			<p>Select your Check-out Date (type in Date year/month/day or use drop-down calendar):* <input type="text" id="datepick-3" name="outDate" value="${param.outDate}" onchange="hideError()" required></p>
   					</div>
   					<c:if test="${dateError!=null}">
   					<div class="item6">

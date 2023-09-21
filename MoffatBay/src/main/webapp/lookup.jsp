@@ -358,10 +358,8 @@
 	</script>
 </head>
 <body>
-<jsp:useBean id="reservation" class="com.moffat.bay.model.ReservationBean"/>
 
-
-<nav>
+	<nav>
 	    <div class="navbar-container">
 	        <h2 class="hotel-title">Moffat Bay</h2>
 	        <ul class="navbar">
@@ -382,6 +380,7 @@
 	    </div>
 
     </nav>
+  <jsp:useBean id="reservation" class="com.moffat.bay.model.ReservationBean"/>
     <br>
 	<h1 style="text-align: center;">Reservation Look-Up Page</h1>
 		<br><br>
