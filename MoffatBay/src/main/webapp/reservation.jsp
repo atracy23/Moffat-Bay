@@ -447,27 +447,31 @@
 
 <body>
 
-	<nav>
-	    <div class="navbar-container">
-	        <h2 class="hotel-title">Moffat Bay</h2>
-	        <ul class="navbar">
-	            <li><a href="index.jsp">Home</a></li>
-	            <li><a href="Aboutus.jsp">About</a></li>
-	            <li><a href="#">Attractions</a> </li>
-	
-	            <li>
-	                <a href="reservation.jsp">Reservation</a>
-	                <ul>
-	                    <li><a href="reservation.jsp">Book a Reservation</a></li>
-	                    <li><a href="lookup.jsp">Reservation Look up</a></li>
-	                    <li><a href="registration.jsp">Create an Account</a></li>
-	                </ul>
-	            </li>
-	            <li class="login-button"><a href="login.jsp">Login</a></li>
-	        </ul>
-	    </div>
+                   <nav>
+                        <div class="navbar-container">
+                            <div class="logo">
+                                <img src="Landing_images/LOGO.jpeg" alt="Logo">
+                                <h2 class="hotel-title">Moffat Bay</h2>
+                            </div>
+                            <ul class="navbar">
+                                <li><a href="index.jsp">Home</a></li>
+                                <li><a href="Aboutus.jsp">About</a></li>
+                                <li><a href="#">Attractions</a> </li>
 
-    </nav>
+                                <li>
+                                    <a href="reservation.jsp">Reservation</a>
+                                    <ul>
+                                        <li><a href="reservation.jsp">Book a Reservation</a></li>
+                                        <li><a href="lookup.jsp">Reservation Look up</a></li>
+                                        <li><a href="registration.jsp">Create an Account</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Contact</a></li>
+                                <li class="login-button"><a href="login.jsp">Login</a></li>
+                            </ul>
+                        </div>
+
+                    </nav>
     <br>
 	<h1 style="text-align: center;">Reservation Page</h1>
 	<br>
