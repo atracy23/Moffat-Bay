@@ -18,8 +18,7 @@
                 <meta charset="ISO-8859-1">
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&family=Jim+Nightshade&display=swap"
-                    rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
                 <title>About Us</title>
                 <style>
                     /* Reset some default styles */
@@ -31,7 +30,7 @@
                     }
 
                     /* Apply Raleway font to all text */
-                    }
+
 
                     /* Global styles */
                     body {
@@ -318,7 +317,7 @@
                                     </ul>
                                 </li>
 
-                                <li class="login-button"><a href="login.jsp">Login</a></li>
+                                <li class="active"><a href="login.jsp">Login</a></li>
                             </ul>
                         </div>
 
