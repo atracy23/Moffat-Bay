@@ -50,336 +50,268 @@
 
 
                                                         <style type="text/css">
-                                                            /* Reset some default styles */
-                                                                {
-                                                                margin: 0;
-                                                                padding: 0;
-                                                                box-sizing: border-box;
-                                                                font-family: 'Raleway', sans-serif;
-                                                                /* Apply Raleway font to all text */
-                                                            }
+/* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Raleway', sans-serif; /* Apply Raleway font to all text */
+        }
 
-                                                            /* Global styles */
-                                                            body {
-                                                                background-color: #f0f0f0;
-                                                                /* Lighter background color */
-                                                            }
+        /* Global styles */
+        body {
+            background-color: #f0f0f0;
+             height: 1000px; 
+        	 overflow: scroll;
 
-                                                            /* Navigation bar styles */
-                                                            ul.navbar {
-                                                                list-style: none;
-                                                                padding: 0;
-                                                                margin: 0;
-                                                                background-color: #26a5b5;
-                                                                /* Teal navbar color */
-                                                                display: flex;
-                                                                /* Add flex display for positioning elements */
-                                                                align-items: center;
-                                                                /* Vertically center elements */
-                                                            }
+        }
+        
+        h1{
+        	text-align: center;
+        	padding: 5px;
+        }
 
-                                                            .navbar-container {
-                                                                display: flex;
-                                                                justify-content: space-between;
-                                                                align-items: center;
-                                                                padding: 15px 20px;
-                                                                background-color: #26a5b5;
-                                                                /* Teal navbar color */
-                                                                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                                                                width: 100%;
-                                                                /* Make the navbar full-width */
-                                                                margin-top: 0;
-                                                                margin-left: 0;
-                                                            }
+        /* Navigation bar styles */
+        ul.navbar {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: #26a5b5; /* Teal navbar color */
+            display: flex; /* Add flex display for positioning elements */
+            align-items: center; /* Vertically center elements */
+        }
 
-                                                            /* Add a new div for the logo and image */
-                                                            .logo {
-                                                                display: flex;
-                                                                align-items: center;
-                                                            }
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #26a5b5; /* Teal navbar color */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%; /* Make the navbar full-width */
+        }
 
-                                                            /* Style the logo image */
-                                                            .logo img {
-                                                                width: 40px;
-                                                                /* Adjust the width as needed */
-                                                                height: 40px;
-                                                                /* Adjust the height as needed */
-                                                                margin-right: 10px;
-                                                                /* Add spacing between the logo and text */
-                                                            }
+        /* Add a new div for the logo and image */
+        .logo {
+            display: flex;
+            align-items: center;
+        }
 
-                                                            ul.navbar li {
-                                                                position: relative;
-                                                                display: inline-block;
-                                                                margin-right: 20px;
-                                                            }
+        /* Style the logo image */
+        .logo img {
+            width: 40px; /* Adjust the width as needed */
+            height: 40px; /* Adjust the height as needed */
+            margin-right: 10px; /* Add spacing between the logo and text */
+        }
 
-                                                            ul.navbar li a {
-                                                                color: white;
-                                                                text-decoration: none;
-                                                                transition: color 0.3s ease-in-out;
-                                                                padding: 5px 10px;
-                                                                /* Add padding for better visual appearance */
-                                                            }
+        ul.navbar li {
+            position: relative;
+            display: inline-block;
+            margin-right: 20px;
+        }
 
-                                                            ul.navbar li.active a {
-                                                                border: 2px solid white;
-                                                                /* Add a white outline for the active link */
-                                                            }
+        ul.navbar li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+            padding: 5px 10px; /* Add padding for better visual appearance */
+        }
+
+  		ul.navbar li.active a {
+            border: 2px solid white; /* Add a white outline for the active link */
+        }
 
 
-                                                            ul.navbar li:hover a {
-                                                                color: #f39c12;
-                                                            }
+        ul.navbar li:hover a {
+            color: #f39c12;
+        }
 
-                                                            ul.navbar li ul {
-                                                                display: none;
-                                                                position: absolute;
-                                                                top: 100%;
-                                                                left: 0;
-                                                                background-color: #444;
-                                                                padding: 0;
-                                                                z-index: 1;
-                                                                border-radius: 4px;
-                                                                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-                                                                transition: opacity 0.3s ease-in-out;
-                                                            }
+        ul.navbar li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #444;
+            padding: 0;
+            z-index: 1;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: opacity 0.3s ease-in-out;
+        }
 
-                                                            ul.navbar li:hover ul {
-                                                                display: block;
-                                                                opacity: 1;
-                                                            }
+        ul.navbar li:hover ul {
+            display: block;
+            opacity: 1;
+        }
 
-                                                            ul.navbar li ul li {
-                                                                display: block;
-                                                                width: 100%;
-                                                                margin: 0;
-                                                            }
+        ul.navbar li ul li {
+            display: block;
+            width: 100%;
+            margin: 0;
+        }
 
-                                                            ul.navbar li ul li a {
-                                                                color: white;
-                                                                padding: 10px;
-                                                                display: block;
-                                                                text-decoration: none;
-                                                                transition: background-color 0.3s ease-in-out;
-                                                            }
+        ul.navbar li ul li a {
+            color: white;
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out;
+        }
 
-                                                            ul.navbar li ul li a:hover {
-                                                                background-color: #555;
-                                                            }
+        ul.navbar li ul li a:hover {
+            background-color: #555;
+        }
 
-                                                            /* Hotel title styles */
-                                                            .hotel-title {
-                                                                color: white;
-                                                                margin: 0;
-                                                                font-size: 34px;
-                                                                font-weight: bold;
-                                                                padding: 8px;
-                                                            }
+        /* Hotel title styles */
+        .hotel-title {
+            color: white;
+            margin: 0;
+            font-size: 34px;
+            font-weight: bold;
+            padding: 8px;
+        }
+        
+       
+        /* Breadcrum styles */
+        ul.breadcrumb{
+    	padding: 10px 16px; 
+    	list-style: none; 
+    	background-color: #26a5b5;
+    	}
+    	
+    	ul.breadcrumb li{
+    	display: inline; 
+    	font-size: 18px;
+    	}
+    	
+    	ul.breadcrumb li+li:before{
+    	padding: 8px; 
+    	color: white; 
+    	content: "/\00a0";
+    	}
+    	
+    	ul.breadcrumb li a{
+    	color: white; 
+    	text-decoration: none;
+    	}
+    	
+    	ul.breadcrumb li a:hover{
+    	color: #01447e; 
+    	text-decoration: underline;
+    	}
+    	
+    	.breadcrumb{
+    	display: flex; 
+    	justify-content: center; 
+    	width: 100%;
+    	}
+    	
+    	.button{
+    	background-color: rgb(38, 165, 181); 
+    	color: white; 
+    	padding: 10px 20px; 
+    	border: none; 
+    	border-radius: 4px; 
+    	cursor: pointer; 
+    	font-size: 18px;
+    	}
+    	
+        .center-container {
+            text-align: center;
+            margin-top: 20px; /* Add spacing at the top */
+            margin-bottom: 1px; /* Add spacing at the bottom */
+        }
 
-                                                            .center-container {
-                                                                text-align: center;
-                                                                margin-top: 20px;
-                                                                /* Add spacing at the top */
-                                                                margin-bottom: 10px;
-                                                                /* Add spacing at the bottom */
-                                                            }
+        /* Form styles */
+        form {
+            display: inline-block;
+            text-align: center;
+            max-width: 300px;
+            margin: 0 auto;
+        }
 
-                                                            .body-container {
-                                                                height: 500px;
-                                                                overflow: auto;
-                                                            }
+        label {
+            display: block;
+           /* margin-bottom: 1px; *//* Add more spacing below labels */
+        }
 
-                                                            .container {
-                                                                border: solid gray;
-                                                                height: fit-content;
-                                                                width: fit-content;
-                                                                padding: 5px 20px;
-                                                                justify-content: space-around;
-                                                                margin: auto;
-                                                                overflow: auto;
-                                                            }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px; /* Add more spacing below text inputs */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Raleway', sans-serif; /* Apply Raleway font to text inputs */
+        }
+   
+        /* Footer styles */
+        footer {
+            background-color: #26a5b5; /* Teal background color */
+            color: white;
+            width: 100%;
+            height: 175px;
+            position: fixed;
+            bottom: 0;
+            padding: 30px 0;
+            margin-top: 20px; /* Add spacing at the top */
+        }
 
-                                                            .form-container {
-                                                                height: fit-content;
-                                                                width: fit-content;
-                                                                padding: 5px 20px;
-                                                                justify-content: space-around;
-                                                                margin: auto;
-                                                            }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-                                                            .grid-container>div {
-                                                                text-align: center, padding: 20px 0;
-                                                                font-size: 20px;
-                                                            }
+        .footer-section {
+            width: 25%;
+            padding: 0 15px;
+            box-sizing: border-box;
+            text-align: center; /* Center text within each div */
+        }
 
-                                                            .grid-container {
-                                                                display: grid;
-                                                                grid-template-columns: 25% 25% 25% 25%);
-                                                                grid-template-rows: auto auto auto auto auto auto;
-                                                                gap: 5px;
-                                                                padding: 5px;
-                                                            }
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
 
-                                                            #blank {
-                                                                grid-column: 1;
-                                                                grid-row: 1;
-                                                            }
+        .footer-section p,
+        .footer-section ul {
+            font-size: 14px;
+        }
 
-                                                            #entries {
-                                                                grid-column: 2;
-                                                                grid-row: 1;
-                                                            }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
 
-                                                            #roomLabel {
-                                                                grid-column: 1;
-                                                                grid-row: 2;
-                                                            }
+        .footer-section ul li {
+            margin-bottom: 5px;
+        }
 
-                                                            #roomSize {
-                                                                grid-column: 2;
-                                                                grid-row: 2;
-                                                            }
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+        }
 
-                                                            #guestsLabel {
-                                                                grid-column: 1;
-                                                                grid-row: 3;
-                                                            }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 20px; /* Add spacing at the top */
+            padding-top: 10px;
+            border-top: 1px solid #555;
+        }
 
-                                                            #numGuests {
-                                                                grid-column: 2;
-                                                                grid-row: 3;
-                                                            }
+        .footer-bottom p {
+            font-size: 12px;
+        }
 
-                                                            #inDateLabel {
-                                                                grid-column: 1;
-                                                                grid-row: 4;
-                                                            }
-
-                                                            #inDate {
-                                                                grid-column: 2;
-                                                                grid-row: 4;
-                                                            }
-
-                                                            #outDateLabel {
-                                                                grid-column: 1;
-                                                                grid-row: 5;
-                                                            }
-
-                                                            #outDate {
-                                                                grid-column: 2;
-                                                                grid-row: 5;
-                                                            }
-
-                                                            /* Form styles */
-                                                            form {
-                                                                display: inline-block;
-                                                                text-align: center;
-                                                                max-width: 300px;
-                                                                margin: 0 auto;
-                                                            }
-
-                                                            label {
-                                                                font-family: 'Raleway', sans-serif;
-                                                                display: block;
-                                                                margin-bottom: 0px;
-                                                                /* Add more spacing below labels */
-                                                            }
-
-                                                            input[type="text"],
-                                                            input[type="password"] {
-                                                                width: 100%;
-                                                                padding: 10px;
-                                                                margin-bottom: 15px;
-                                                                /* Add more spacing below text inputs */
-                                                                border: 1px solid #ccc;
-                                                                border-radius: 4px;
-                                                                box-sizing: border-box;
-                                                                font-family: 'Raleway', sans-serif;
-                                                                /* Apply Raleway font to text inputs */
-                                                            }
-
-                                                            .button {
-                                                                background-color: rgb(38, 165, 181);
-                                                                color: white;
-                                                                padding: 10px 20px;
-                                                                border: none;
-                                                                border-radius: 4px;
-                                                                cursor: pointer;
-                                                                font-size: 18px;
-                                                            }
-
-                                                            /* Footer styles */
-                                                            footer {
-                                                                background-color: #26a5b5;
-                                                                /* Teal background color */
-                                                                color: white;
-                                                                padding: 30px 0;
-                                                                margin-top: 20px;
-                                                                /* Add spacing at the top */
-                                                                position: fixed;
-                                                                right: 0;
-                                                                left: 0;
-                                                                bottom: 0;
-                                                            }
-
-                                                            .footer-content {
-                                                                display: flex;
-                                                                justify-content: space-around;
-                                                                flex-wrap: wrap;
-                                                                max-width: 1200px;
-                                                                margin: 0 auto;
-                                                            }
-
-                                                            .footer-section {
-                                                                width: 25%;
-                                                                padding: 0 15px;
-                                                                box-sizing: border-box;
-                                                                text-align: center;
-                                                                /* Center text within each div */
-                                                            }
-
-                                                            .footer-section h3 {
-                                                                font-size: 18px;
-                                                                margin-bottom: 10px;
-                                                            }
-
-                                                            .footer-section p,
-                                                            .footer-section ul {
-                                                                font-size: 14px;
-                                                            }
-
-                                                            .footer-section ul {
-                                                                list-style: none;
-                                                                padding: 0;
-                                                            }
-
-                                                            .footer-section ul li {
-                                                                margin-bottom: 5px;
-                                                            }
-
-                                                            .footer-section ul li a {
-                                                                color: white;
-                                                                text-decoration: none;
-                                                            }
-
-                                                            .footer-bottom {
-                                                                text-align: center;
-                                                                margin-top: 20px;
-                                                                /* Add spacing at the top */
-                                                                padding-top: 10px;
-                                                                border-top: 1px solid #555;
-                                                            }
-
-                                                            .footer-bottom p {
-                                                                font-size: 12px;
-                                                            }
-
-                                                            /* Adjust font size for the login header */
-                                                            .login-header {
-                                                                font-size: 18px;
-                                                                /* Change the font size as needed */
-                                                            }
+        /* Adjust font size for the login header */
+        .login-header {
+            font-size: 18px; /* Change the font size as needed */
+        }
                                                         </style>
 
                                                         <script>
