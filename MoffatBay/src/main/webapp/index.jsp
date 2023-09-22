@@ -374,13 +374,13 @@
                     <ul class="navbar">
                         <li><a href="#">Home</a></li>
                         <li><a href="Aboutus.jsp">About</a></li>
-                        <li><a href="#">Attractions</a> </li>
+                        <li><a href="Attractions.jsp">Attractions</a> </li>
 
                         <li>
                             <a href="#">Reservation</a>
                             <ul>
                                 <li><a href="reservation.jsp">Book a Reservation</a></li>
-                                <li><a href="#">Reservation Look up</a></li>
+                                <li><a href="lookup.jsp">Reservation Look up</a></li>
                                 <li><a href="registration.jsp">Create an Account</a></li>
                             </ul>
                         </li>

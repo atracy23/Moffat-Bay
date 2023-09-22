@@ -370,7 +370,7 @@
                             <ul class="navbar">
                                 <li><a href="index.jsp">Home</a></li>
                                 <li><a href="Aboutus.jsp">About</a></li>
-                                <li><a href="#">Attractions</a> </li>
+                                <li><a href="Attractions.jsp">Attractions</a> </li>
 
                                 <li>
                                     <a href="reservation.jsp">Reservation</a>
