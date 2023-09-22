@@ -18,8 +18,7 @@
             <link rel="stylesheet" type="text/css" href="home_css.css">
             <link rel="preconnect" href="https://fonts.googleapis.com">
 
-            <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&family=Jim+Nightshade&display=swap"
-                rel="stylesheet">
+            <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
             <title>Moffat Bay</title>
 
             <style>
@@ -136,6 +135,11 @@
 
                 ul.navbar li ul li a:hover {
                     background-color: #555;
+                }
+
+                ul.navbar li.active a {
+                    border: 2px solid white;
+                    /* Add a white outline for the active link */
                 }
 
                 /* Hotel title styles */
@@ -372,7 +376,7 @@
                         <h2 class="hotel-title">Moffat Bay</h2>
                     </div>
                     <ul class="navbar">
-                        <li><a href="#">Home</a></li>
+                        <li class="active"><a href="index.jsp">Home</a></li>
                         <li><a href="Aboutus.jsp">About</a></li>
                         <li><a href="Attractions.jsp">Attractions</a> </li>
 
@@ -462,7 +466,7 @@
                         <h3>Reservations</h3>
                         <ul>
                             <li><a href="reservation.jsp">Book Now</a></li>
-                            <li><a href="#">Reservation Look up</a></li>
+                            <li><a href="lookup.jsp">Reservation Look up</a></li>
                         </ul>
                     </div>
                     <div class="footer-section">
