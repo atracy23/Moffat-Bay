@@ -533,9 +533,7 @@
                             <div class="footer-section">
                                 <h3>Attractions</h3>
                                 <ul>
-                                    <li><a href="#">Beaches</a></li>
-                                    <li><a href="#">Hiking Trails</a></li>
-                                    <li><a href="#">Wildlife Tours</a></li>
+                                    <li><a href="attractions.html">Check Out What We have to Offer!</a></li>
                                 </ul>
                             </div>
                             <div class="footer-section">
