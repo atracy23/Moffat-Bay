@@ -411,7 +411,7 @@
                                                                                     Account</a></li>
                                                                         </ul>
                                                                     </li>
-                                                                    <li><a href="#">Contact</a></li>
+
                                                                     <li class="login-button"><a
                                                                             href="login.jsp">Login</a></li>
                                                                 </ul>
@@ -445,7 +445,8 @@
 
                                                                     </form>
                                                                     <p style="max-width: 400px; color: red;">
-                                                                        <b>${idErrorMessage}</b></p>
+                                                                        <b>${idErrorMessage}</b>
+                                                                    </p>
                                                                     <div class="grid-container">
                                                                         <c:if test="${roomSize!=null}">
 

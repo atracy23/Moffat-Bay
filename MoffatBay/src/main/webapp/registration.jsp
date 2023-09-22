@@ -336,7 +336,7 @@
                                     <li><a href="registration.jsp">Create an Account</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Contact</a></li>
+
                             <li class="login-button"><a href="login.jsp">Login</a></li>
                         </ul>
                     </div>
