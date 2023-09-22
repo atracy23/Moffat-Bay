@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="home_css.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&family=Jim+Nightshade&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <title>Moffat Bay</title>
 
     <style>
@@ -75,11 +75,12 @@
             text-decoration: none;
             transition: color 0.3s ease-in-out;
             padding: 5px 10px;
-        }
+          }
 
-        ul.navbar li.active a {
-            border: 2px solid white;
-        }
+                    ul.navbar li.active a {
+                        border: 2px solid white;
+                        /* Add a white outline for the active link */
+                    }
 
         ul.navbar li:hover a {
             color: #f39c12;
@@ -263,7 +264,7 @@
             <ul class="navbar">
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="Aboutus.jsp">About</a></li>
-                <li><a href="Attractions.jsp">Attractions</a></li>
+                <li class="active"><a href="#">Attractions</a></li>
                 <li>
                     <a href="#">Reservation</a>
                     <ul>
@@ -279,14 +280,14 @@
     <h1 style="margin-top: 20px;">Attractions</h1>
     <div class="attraction-container">
         <div class="attraction-card">
-            <img src="testpictures/stock-photo-hiking-in-the-mountains.jpg" alt="Attraction 1">
+            <img src="Landing_images/stock-photo-hiking-in-the-mountains.jpg" alt="Attraction 1">
             <h4>Hiking</h4>
             <p>Embark on a journey of discovery as you traverse the pristine landscapes of Joviedsa Island. From
                 leisurely strolls to more challenging treks, each path unveils a new facet of the island's beauty.</p>
         </div>
 
         <div class="attraction-card">
-            <img src="testpictures/kayak-sparks-lake-wanderlust.jfif" alt="Attraction 2">
+            <img src="Landing_images/kayak-sparks-lake-wanderlust.jfif" alt="Attraction 2">
             <h4>Kayaking</h4>
             <p>Explore the tranquil waters surrounding Joviedsa Island with our exhilarating kayaking adventures. Glide
                 through crystal-clear bays, hidden coves, and picturesque inlets as you embrace the serenity of the sea.
@@ -294,7 +295,7 @@
         </div>
 
         <div class="attraction-card">
-            <img src="testpictures/whale-watching-tour-san-juan-islands.jpg" alt="Attraction 3">
+            <img src="Landing_images/whale-watching-tour-san-juan-islands.jpg" alt="Attraction 3">
             <h4>Whale Watching</h4>
             <p>Experience the mesmerizing boat excursion to witness the whales as they migrate through the waters. Feel
                 the thrill as you spot humpback whales playing in their natural habitat, creating memories for the
@@ -302,7 +303,7 @@
         </div>
 
         <div class="attraction-card">
-            <img src="testpictures/WE0466-D-brandon_cole.webp" alt="Attraction 4">
+            <img src="Landing_images/WE0466-D-brandon_cole.webp" alt="Attraction 4">
             <h4>Diving</h4>
             <p>Dive into a world of wonder beneath the waves with our scuba diving experiences. Discover the vibrant
                 coral reefs and marine ecosystems. Our certified instructors will guide you through underwater
