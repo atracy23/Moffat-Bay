@@ -18,8 +18,7 @@
                 <meta charset="ISO-8859-1">
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <link href="https://fonts.googleapis.com/css2?family=Inria+Serif&family=Jim+Nightshade&display=swap"
-                    rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
                 <title>About Us</title>
                 <style>
                     /* Reset some default styles */
@@ -31,7 +30,7 @@
                     }
 
                     /* Apply Raleway font to all text */
-                    }
+
 
                     /* Global styles */
                     body {
@@ -317,8 +316,8 @@
                                         <li><a href="registration.jsp">Create an Account</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Contact</a></li>
-                                <li class="login-button"><a href="login.jsp">Login</a></li>
+
+                                <li class="active"><a href="login.jsp">Login</a></li>
                             </ul>
                         </div>
 
@@ -366,7 +365,7 @@
                                 <h3>Reservations</h3>
                                 <ul>
                                     <li><a href="reservation.jsp">Book Now</a></li>
-                                    <li><a href="#">Reservation Look up</a></li>
+                                    <li><a href="lookup.jsp">Reservation Look up</a></li>
                                 </ul>
                             </div>
                             <div class="footer-section">
