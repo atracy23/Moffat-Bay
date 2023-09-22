@@ -496,7 +496,7 @@
 																	</li>
 																</ul>
 															</li>
-															<li><a href="#">Contact</a></li>
+
 															<li class="login-button"><a href="login.jsp">Login</a></li>
 														</ul>
 													</div>
