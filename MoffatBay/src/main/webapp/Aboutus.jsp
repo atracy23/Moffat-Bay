@@ -10,6 +10,7 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +25,13 @@
         }
 
         /* Apply Raleway font to all text */
-        body, h2, h3, p, label, input, a {
+        body,
+        h2,
+        h3,
+        p,
+        label,
+        input,
+        a {
             font-family: 'Raleway', sans-serif;
         }
 
@@ -320,26 +327,26 @@
         }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="navbar-container">
             <div class="logo">
-                <img src="Images/LOGO.jpeg" alt="Logo">
+                <img src="Landing_images/LOGO.jpeg" alt="Logo">
                 <h2 class="hotel-title">Moffat Bay</h2>
             </div>
             <ul class="navbar">
                 <li><a href="index.jsp">Home</a></li>
                 <li class="active"><a href="Aboutus.jsp">About</a></li>
-                <li><a href="#">Attractions</a></li>
+                <li><a href="Attractions.jsp">Attractions</a></li>
                 <li>
                     <a href="#">Reservation</a>
                     <ul>
                         <li><a href="reservation.jsp">Book a Reservation</a></li>
-                        <li><a href="#">Reservation Look up</a></li>
+                        <li><a href="lookup.jsp">Reservation Look up</a></li>
                         <li><a href="register.jsp">Create an Account</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Contact</a></li>
                 <li class="login-button"><a href="login.jsp">Login</a></li>
             </ul>
         </div>
@@ -350,7 +357,8 @@
         <h3 class="slogan">Discover the beauty of Moffat Bay Resort, where nature meets luxury.</h3>
         <br>
         <p>Moffat Bay Resort is your haven of tranquility nestled on the breathtaking Joviedsa Island. Situated
-            amidst the pristine beauty of nature, Moffat Bay Resort offers a unique and unforgettable getaway experience for
+            amidst the pristine beauty of nature, Moffat Bay Resort offers a unique and unforgettable getaway experience
+            for
             those seeking a harmonious blend of relaxation, adventure, and serenity. At Moffat Bay Resort, we believe
             in the magic of nature and the power it has to rejuvenate the soul. Our lodge was founded with a passion
             for preserving the untouched beauty of Joviedsa Island and sharing it with the world. Our journey began with
@@ -374,13 +382,26 @@
         <br>
         <img src="Landing_images/hotelOwner.jpg" alt="resort">
         <p>
-            Aria Kahale is a visionary entrepreneur and advocate for sustainable tourism in Joviedsa Island, where she owns the luxurious Moffat Bay Resort. Her journey as the resort owner is a testament to her deep connection to the Joviedsa island and her commitment to preserving it's natural beauty.
+            Aria Kahale is a visionary entrepreneur and advocate for sustainable tourism in Joviedsa Island, where she
+            owns the luxurious Moffat Bay Resort. Her journey as the resort owner is a testament to her deep connection
+            to the Joviedsa island and her commitment to preserving it's natural beauty.
             <br><br>
-            Born and raised on Sipha, Aria developed a profound love for Joviedsa Island's unique ecosystems early in life. She studied environmental science at the University of San Juan Islands and earned a master's degree in sustainable tourism management. Prior to acquiring Moffat Bay Resort in 2010, Aria dedicated herself to conservation efforts, working with various organizations to protect San Juan Island's fragile ecosystems. Her belief in the power of education to inspire change led her to create eco-tourism programs, allowing visitors to experience Joviedsa Island's natural wonders while learning about conservation.
+            Born and raised on Sipha, Aria developed a profound love for Joviedsa Island's unique ecosystems early in
+            life. She studied environmental science at the University of San Juan Islands and earned a master's degree
+            in sustainable tourism management. Prior to acquiring Moffat Bay Resort in 2010, Aria dedicated herself to
+            conservation efforts, working with various organizations to protect San Juan Island's fragile ecosystems.
+            Her belief in the power of education to inspire change led her to create eco-tourism programs, allowing
+            visitors to experience Joviedsa Island's natural wonders while learning about conservation.
             <br><br>
-            In 2010, under her leadership, the resort was built as an eco-friendly luxury destination, featuring sustainable practices like solar power, water recycling, and organic landscaping. Today, it attracts eco-conscious travelers seeking relaxation and environmental responsibility.
+            In 2010, under her leadership, the resort was built as an eco-friendly luxury destination, featuring
+            sustainable practices like solar power, water recycling, and organic landscaping. Today, it attracts
+            eco-conscious travelers seeking relaxation and environmental responsibility.
             <br><br>
-            Aria Kahale's journey from a San Juan Islands upbringing to becoming a respected advocate for sustainable tourism reflects her dedication to preserving Joviedsa Island's natural treasures. Her commitment to environmental awareness and conservation ensures that the islands remain a pristine sanctuary for future generations. As both a successful resort owner and a passionate steward of Joviedsa Island's beauty, Aria has earned admiration locally and globally within the tourism industry.
+            Aria Kahale's journey from a San Juan Islands upbringing to becoming a respected advocate for sustainable
+            tourism reflects her dedication to preserving Joviedsa Island's natural treasures. Her commitment to
+            environmental awareness and conservation ensures that the islands remain a pristine sanctuary for future
+            generations. As both a successful resort owner and a passionate steward of Joviedsa Island's beauty, Aria
+            has earned admiration locally and globally within the tourism industry.
         </p>
     </div>
 
@@ -415,16 +436,14 @@
             <div class="footer-section">
                 <h3>Attractions</h3>
                 <ul>
-                    <li><a href="#">Beaches</a></li>
-                    <li><a href="#">Hiking Trails</a></li>
-                    <li><a href="#">Wildlife Tours</a></li>
+                    <li><a href="attractions.html">Check Out What We have to Offer!</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Reservations</h3>
                 <ul>
                     <li><a href="reservation.jsp">Book Now</a></li>
-                    <li><a href="#">Reservation Look up</a></li>
+                    <li><a href="lookup.jsp">Reservation Look up</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -449,4 +468,5 @@
         });
     </script>
 </body>
+
 </html>
