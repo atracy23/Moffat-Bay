@@ -317,7 +317,7 @@
                                         <li><a href="registration.jsp">Create an Account</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Contact</a></li>
+
                                 <li class="login-button"><a href="login.jsp">Login</a></li>
                             </ul>
                         </div>
@@ -366,7 +366,7 @@
                                 <h3>Reservations</h3>
                                 <ul>
                                     <li><a href="reservation.jsp">Book Now</a></li>
-                                    <li><a href="#">Reservation Look up</a></li>
+                                    <li><a href="lookup.jsp">Reservation Look up</a></li>
                                 </ul>
                             </div>
                             <div class="footer-section">
