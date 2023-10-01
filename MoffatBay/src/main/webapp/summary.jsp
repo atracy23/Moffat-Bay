@@ -471,7 +471,7 @@
                                         <li><a href="register.jsp">Create an Account</a></li>
                                     </ul>
                                 </li>
-
+                                
                                 <li class="login-button"><a href="login.jsp">Login</a></li>
                             </ul>
                         </div>
@@ -533,7 +533,9 @@
                             <div class="footer-section">
                                 <h3>Attractions</h3>
                                 <ul>
-                                    <li><a href="attractions.html">Check Out What We have to Offer!</a></li>
+                                    <li><a href="#">Beaches</a></li>
+                                    <li><a href="#">Hiking Trails</a></li>
+                                    <li><a href="#">Wildlife Tours</a></li>
                                 </ul>
                             </div>
                             <div class="footer-section">
