@@ -215,8 +215,10 @@ public class LookUpServlet extends HttpServlet implements Serializable  {
 			RequestDispatcher rd = request.getRequestDispatcher("/lookup.jsp");
 			rd.forward(request, response);
 			
-}
+		}
 	
 
 
-}
+	}
+	
+}	

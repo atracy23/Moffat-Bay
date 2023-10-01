@@ -68,7 +68,7 @@ public class UserDao {
 	public Connection dbConnection() throws ClassNotFoundException, SQLException {
         String dbUrl = "jdbc:mysql://localhost:3306/moffat_bay";
         String dbUsername = "root";
-        String dbPassword = "Yogesh@05";
+        String dbPassword = "root";
 
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
