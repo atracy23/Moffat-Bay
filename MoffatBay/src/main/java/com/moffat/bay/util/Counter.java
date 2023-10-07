@@ -13,6 +13,10 @@ public class Counter {
 		counter--;
 	}
 	
+	public void clear() {
+		counter = 0;
+	}
+	
 	public int getCounter() {
 		return counter;
 	}
