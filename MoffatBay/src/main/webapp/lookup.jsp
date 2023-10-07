@@ -50,268 +50,299 @@
 
 
                                                         <style type="text/css">
-/* Reset some default styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Raleway', sans-serif; /* Apply Raleway font to all text */
-        }
+                                                            /* Reset some default styles */
+                                                            * {
+                                                                margin: 0;
+                                                                padding: 0;
+                                                                box-sizing: border-box;
+                                                                font-family: 'Raleway', sans-serif;
+                                                                /* Apply Raleway font to all text */
+                                                            }
 
-        /* Global styles */
-        body {
-            background-color: #f0f0f0;
-             height: 1000px; 
-        	 overflow: scroll;
+                                                            /* Global styles */
+                                                            body {
+                                                                background-color: #f0f0f0;
+                                                                height: 1000px;
+                                                                overflow: scroll;
 
-        }
-        
-        h1{
-        	text-align: center;
-        	padding: 5px;
-        }
+                                                            }
 
-        /* Navigation bar styles */
-        ul.navbar {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            background-color: #26a5b5; /* Teal navbar color */
-            display: flex; /* Add flex display for positioning elements */
-            align-items: center; /* Vertically center elements */
-        }
+                                                            h1 {
+                                                                text-align: center;
+                                                                padding: 5px;
+                                                            }
 
-        .navbar-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background-color: #26a5b5; /* Teal navbar color */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            width: 100%; /* Make the navbar full-width */
-        }
+                                                            /* Navigation bar styles */
+                                                            ul.navbar {
+                                                                list-style: none;
+                                                                padding: 0;
+                                                                margin: 0;
+                                                                background-color: #26a5b5;
+                                                                /* Teal navbar color */
+                                                                display: flex;
+                                                                /* Add flex display for positioning elements */
+                                                                align-items: center;
+                                                                /* Vertically center elements */
+                                                            }
 
-        /* Add a new div for the logo and image */
-        .logo {
-            display: flex;
-            align-items: center;
-        }
+                                                            .navbar-container {
+                                                                display: flex;
+                                                                justify-content: space-between;
+                                                                align-items: center;
+                                                                padding: 15px 20px;
+                                                                background-color: #26a5b5;
+                                                                /* Teal navbar color */
+                                                                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                                                                width: 100%;
+                                                                /* Make the navbar full-width */
+                                                            }
 
-        /* Style the logo image */
-        .logo img {
-            width: 40px; /* Adjust the width as needed */
-            height: 40px; /* Adjust the height as needed */
-            margin-right: 10px; /* Add spacing between the logo and text */
-        }
+                                                            /* Add a new div for the logo and image */
+                                                            .logo {
+                                                                display: flex;
+                                                                align-items: center;
+                                                            }
 
-        ul.navbar li {
-            position: relative;
-            display: inline-block;
-            margin-right: 20px;
-        }
+                                                            /* Style the logo image */
+                                                            .logo img {
+                                                                width: 40px;
+                                                                /* Adjust the width as needed */
+                                                                height: 40px;
+                                                                /* Adjust the height as needed */
+                                                                margin-right: 10px;
+                                                                /* Add spacing between the logo and text */
+                                                            }
 
-        ul.navbar li a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease-in-out;
-            padding: 5px 10px; /* Add padding for better visual appearance */
-        }
+                                                            ul.navbar li {
+                                                                position: relative;
+                                                                display: inline-block;
+                                                                margin-right: 20px;
+                                                            }
 
-  		ul.navbar li.active a {
-            border: 2px solid white; /* Add a white outline for the active link */
-        }
+                                                            ul.navbar li a {
+                                                                color: white;
+                                                                text-decoration: none;
+                                                                transition: color 0.3s ease-in-out;
+                                                                padding: 5px 10px;
+                                                                /* Add padding for better visual appearance */
+                                                            }
+
+                                                            ul.navbar li.active a {
+                                                                border: 2px solid white;
+                                                                /* Add a white outline for the active link */
+                                                            }
 
 
-        ul.navbar li:hover a {
-            color: #f39c12;
-        }
+                                                            ul.navbar li:hover a {
+                                                                color: #f39c12;
+                                                            }
 
-        ul.navbar li ul {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #444;
-            padding: 0;
-            z-index: 1;
-            border-radius: 4px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            transition: opacity 0.3s ease-in-out;
-        }
+                                                            ul.navbar li ul {
+                                                                display: none;
+                                                                position: absolute;
+                                                                top: 100%;
+                                                                left: 0;
+                                                                background-color: #444;
+                                                                padding: 0;
+                                                                z-index: 1;
+                                                                border-radius: 4px;
+                                                                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                                                                transition: opacity 0.3s ease-in-out;
+                                                            }
 
-        ul.navbar li:hover ul {
-            display: block;
-            opacity: 1;
-        }
+                                                            ul.navbar li:hover ul {
+                                                                display: block;
+                                                                opacity: 1;
+                                                            }
 
-        ul.navbar li ul li {
-            display: block;
-            width: 100%;
-            margin: 0;
-        }
+                                                            ul.navbar li ul li {
+                                                                display: block;
+                                                                width: 100%;
+                                                                margin: 0;
+                                                            }
 
-        ul.navbar li ul li a {
-            color: white;
-            padding: 10px;
-            display: block;
-            text-decoration: none;
-            transition: background-color 0.3s ease-in-out;
-        }
+                                                            ul.navbar li ul li a {
+                                                                color: white;
+                                                                padding: 10px;
+                                                                display: block;
+                                                                text-decoration: none;
+                                                                transition: background-color 0.3s ease-in-out;
+                                                            }
 
-        ul.navbar li ul li a:hover {
-            background-color: #555;
-        }
+                                                            ul.navbar li ul li a:hover {
+                                                                background-color: #555;
+                                                            }
 
-        /* Hotel title styles */
-        .hotel-title {
-            color: white;
-            margin: 0;
-            font-size: 34px;
-            font-weight: bold;
-            padding: 8px;
-        }
-        
-       
-        /* Breadcrum styles */
-        ul.breadcrumb{
-    	padding: 10px 16px; 
-    	list-style: none; 
-    	background-color: #26a5b5;
-    	}
-    	
-    	ul.breadcrumb li{
-    	display: inline; 
-    	font-size: 18px;
-    	}
-    	
-    	ul.breadcrumb li+li:before{
-    	padding: 8px; 
-    	color: white; 
-    	content: "/\00a0";
-    	}
-    	
-    	ul.breadcrumb li a{
-    	color: white; 
-    	text-decoration: none;
-    	}
-    	
-    	ul.breadcrumb li a:hover{
-    	color: #01447e; 
-    	text-decoration: underline;
-    	}
-    	
-    	.breadcrumb{
-    	display: flex; 
-    	justify-content: center; 
-    	width: 100%;
-    	}
-    	
-    	.button{
-    	background-color: rgb(38, 165, 181); 
-    	color: white; 
-    	padding: 10px 20px; 
-    	border: none; 
-    	border-radius: 4px; 
-    	cursor: pointer; 
-    	font-size: 18px;
-    	}
-    	
-        .center-container {
-            text-align: center;
-            margin-top: 20px; /* Add spacing at the top */
-            margin-bottom: 1px; /* Add spacing at the bottom */
-        }
+                                                            /* Hotel title styles */
+                                                            .hotel-title {
+                                                                color: white;
+                                                                margin: 0;
+                                                                font-size: 34px;
+                                                                font-weight: bold;
+                                                                padding: 8px;
+                                                            }
 
-        /* Form styles */
-        form {
-            display: inline-block;
-            text-align: center;
-            max-width: 300px;
-            margin: 0 auto;
-        }
 
-        label {
-            display: block;
-           /* margin-bottom: 1px; *//* Add more spacing below labels */
-        }
+                                                            /* Breadcrum styles */
+                                                            ul.breadcrumb {
+                                                                padding: 10px 16px;
+                                                                list-style: none;
+                                                                background-color: #26a5b5;
+                                                            }
 
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px; /* Add more spacing below text inputs */
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-family: 'Raleway', sans-serif; /* Apply Raleway font to text inputs */
-        }
-   
-        /* Footer styles */
-        footer {
-            background-color: #26a5b5; /* Teal background color */
-            color: white;
-            width: 100%;
-            height: 175px;
-            position: fixed;
-            bottom: 0;
-            padding: 30px 0;
-            margin-top: 20px; /* Add spacing at the top */
-        }
+                                                            ul.breadcrumb li {
+                                                                display: inline;
+                                                                font-size: 18px;
+                                                            }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+                                                            ul.breadcrumb li+li:before {
+                                                                padding: 8px;
+                                                                color: white;
+                                                                content: "/\00a0";
+                                                            }
 
-        .footer-section {
-            width: 25%;
-            padding: 0 15px;
-            box-sizing: border-box;
-            text-align: center; /* Center text within each div */
-        }
+                                                            ul.breadcrumb li a {
+                                                                color: white;
+                                                                text-decoration: none;
+                                                            }
 
-        .footer-section h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
+                                                            ul.breadcrumb li a:hover {
+                                                                color: #01447e;
+                                                                text-decoration: underline;
+                                                            }
 
-        .footer-section p,
-        .footer-section ul {
-            font-size: 14px;
-        }
+                                                            .breadcrumb {
+                                                                display: flex;
+                                                                justify-content: center;
+                                                                width: 100%;
+                                                            }
 
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
+                                                            .button {
+                                                                background-color: rgb(38, 165, 181);
+                                                                color: white;
+                                                                padding: 10px 20px;
+                                                                border: none;
+                                                                border-radius: 4px;
+                                                                cursor: pointer;
+                                                                font-size: 18px;
+                                                            }
 
-        .footer-section ul li {
-            margin-bottom: 5px;
-        }
+                                                            .center-container {
+                                                                text-align: center;
+                                                                margin-top: 20px;
+                                                                /* Add spacing at the top */
+                                                                margin-bottom: 1px;
+                                                                /* Add spacing at the bottom */
+                                                            }
 
-        .footer-section ul li a {
-            color: white;
-            text-decoration: none;
-        }
+                                                            /* Form styles */
+                                                            form {
+                                                                display: inline-block;
+                                                                text-align: center;
+                                                                max-width: 300px;
+                                                                margin: 0 auto;
+                                                            }
 
-        .footer-bottom {
-            text-align: center;
-            margin-top: 20px; /* Add spacing at the top */
-            padding-top: 10px;
-            border-top: 1px solid #555;
-        }
+                                                            label {
+                                                                display: block;
+                                                                /* margin-bottom: 1px; */
+                                                                /* Add more spacing below labels */
+                                                            }
 
-        .footer-bottom p {
-            font-size: 12px;
-        }
+                                                            input[type="text"],
+                                                            input[type="password"] {
+                                                                width: 100%;
+                                                                padding: 10px;
+                                                                margin-bottom: 15px;
+                                                                /* Add more spacing below text inputs */
+                                                                border: 1px solid #ccc;
+                                                                border-radius: 4px;
+                                                                box-sizing: border-box;
+                                                                font-family: 'Raleway', sans-serif;
+                                                                /* Apply Raleway font to text inputs */
+                                                            }
 
-        /* Adjust font size for the login header */
-        .login-header {
-            font-size: 18px; /* Change the font size as needed */
-        }
+                                                            /* Footer styles */
+                                                            footer {
+                                                                background-color: #26a5b5;
+                                                                /* Teal background color */
+                                                                color: white;
+                                                                padding: 30px 0;
+                                                                margin-top: 20px;
+                                                                text-align: center;
+                                                            }
+
+                                                            .footer-content {
+                                                                max-width: 1200px;
+                                                                margin: 0 auto;
+                                                                display: flex;
+                                                                justify-content: space-between;
+                                                                align-items: flex-start;
+                                                                gap: 40px;
+                                                                /* Increase the gap for more spacing */
+                                                            }
+
+                                                            .footer-section-info {
+                                                                /* Adjust the width to create spacing */
+                                                                box-sizing: border-box;
+                                                                text-align: center;
+                                                                width: 40%;
+                                                                /* Adjust the width as needed */
+                                                            }
+
+                                                            .footer-section {
+                                                                /* Adjust the width to create spacing */
+                                                                box-sizing: border-box;
+                                                                text-align: center;
+                                                                width: 60%;
+                                                                /* Adjust the width as needed */
+                                                            }
+
+                                                            .footer-section h3 {
+                                                                font-size: 18px;
+                                                                margin-bottom: 10px;
+                                                            }
+
+                                                            .footer-section p {
+                                                                font-size: 14px;
+                                                                margin-bottom: 10px;
+                                                            }
+
+                                                            .footer-section ul {
+                                                                list-style: none;
+                                                                padding: 0;
+                                                            }
+
+                                                            .footer-section ul li {
+                                                                margin-bottom: 15px;
+                                                                /* Increase the margin for more spacing */
+                                                                text-align: center;
+                                                                /* Center the text */
+                                                            }
+
+                                                            .footer-section ul li a {
+                                                                color: white;
+                                                                text-decoration: none;
+                                                            }
+
+                                                            .footer-bottom {
+                                                                text-align: center;
+                                                                margin-top: 20px;
+                                                                padding-top: 10px;
+                                                                border-top: 1px solid #555;
+                                                            }
+
+                                                            .footer-bottom p {
+                                                                font-size: 12px;
+                                                            }
+
+
+
+                                                            /* Adjust font size for the login header */
+                                                            .login-header {
+                                                                font-size: 18px;
+                                                                /* Change the font size as needed */
+                                                            }
                                                         </style>
 
                                                         <script>
@@ -437,16 +468,31 @@
                                                         </div>
                                                         <footer>
                                                             <div class="footer-content">
+                                                                <div class="footer-section-info">
+                                                                    <p>10 Moffat Bay,
+                                                                        Joviedsa,
+                                                                        WA 98250</p>
+                                                                    <p>info@moffatbay.com</p>
+                                                                    <p>223-445-0678</p>
+                                                                </div>
+
                                                                 <div class="footer-section">
+
                                                                     <h3>About Us</h3>
-                                                                    <p>Discover the beauty of Moffat Bay Resort, where
-                                                                        nature meets luxury.</p>
+                                                                    <ul>
+                                                                        <li><a href="Aboutus.jsp">Discover the beauty of
+                                                                                Moffat Bay Resort, where nature meets
+                                                                                luxury.</a></li>
+                                                                    </ul>
+
+
                                                                 </div>
                                                                 <div class="footer-section">
                                                                     <h3>Attractions</h3>
                                                                     <ul>
                                                                         <li><a href="attractions.html">Check Out What We
                                                                                 have to Offer!</a></li>
+
                                                                     </ul>
                                                                 </div>
                                                                 <div class="footer-section">
@@ -465,6 +511,7 @@
                                                                                 Account</a></li>
                                                                     </ul>
                                                                 </div>
+
                                                             </div>
                                                             <div class="footer-bottom">
                                                                 <p>&copy; 2023 Moffat Bay Resort. All rights reserved.
