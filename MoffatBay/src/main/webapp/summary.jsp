@@ -391,23 +391,33 @@
                             color: white;
                             padding: 30px 0;
                             margin-top: 20px;
-                            /* Add spacing at the top */
+                            text-align: center;
                         }
 
                         .footer-content {
-                            display: flex;
-                            justify-content: space-around;
-                            flex-wrap: wrap;
                             max-width: 1200px;
                             margin: 0 auto;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: flex-start;
+                            gap: 40px;
+                            /* Increase the gap for more spacing */
+                        }
+
+                        .footer-section-info {
+                            /* Adjust the width to create spacing */
+                            box-sizing: border-box;
+                            text-align: center;
+                            width: 40%;
+                            /* Adjust the width as needed */
                         }
 
                         .footer-section {
-                            width: 25%;
-                            padding: 0 15px;
+                            /* Adjust the width to create spacing */
                             box-sizing: border-box;
                             text-align: center;
-                            /* Center text within each div */
+                            width: 60%;
+                            /* Adjust the width as needed */
                         }
 
                         .footer-section h3 {
@@ -415,9 +425,9 @@
                             margin-bottom: 10px;
                         }
 
-                        .footer-section p,
-                        .footer-section ul {
+                        .footer-section p {
                             font-size: 14px;
+                            margin-bottom: 10px;
                         }
 
                         .footer-section ul {
@@ -426,7 +436,10 @@
                         }
 
                         .footer-section ul li {
-                            margin-bottom: 5px;
+                            margin-bottom: 15px;
+                            /* Increase the margin for more spacing */
+                            text-align: center;
+                            /* Center the text */
                         }
 
                         .footer-section ul li a {
@@ -437,7 +450,6 @@
                         .footer-bottom {
                             text-align: center;
                             margin-top: 20px;
-                            /* Add spacing at the top */
                             padding-top: 10px;
                             border-top: 1px solid #555;
                         }
@@ -471,7 +483,7 @@
                                         <li><a href="register.jsp">Create an Account</a></li>
                                     </ul>
                                 </li>
-                                
+
                                 <li class="login-button"><a href="login.jsp">Login</a></li>
                             </ul>
                         </div>
@@ -526,38 +538,52 @@
 
                     <footer>
                         <div class="footer-content">
+                            <div class="footer-section-info">
+                                <p>10 Moffat Bay,
+                                    Joviedsa,
+                                    WA 98250</p>
+                                <p>info@moffatbay.com</p>
+                                <p>223-445-0678</p>
+                            </div>
+
                             <div class="footer-section">
+
                                 <h3>About Us</h3>
-                                <p>Discover the beauty of Moffat Bay Resort, where nature meets luxury.</p>
+                                <ul>
+                                    <li><a href="Aboutus.jsp">Discover the beauty of Moffat Bay Resort, where nature
+                                            meets
+                                            luxury.</a></li>
+                                </ul>
+
+
                             </div>
                             <div class="footer-section">
                                 <h3>Attractions</h3>
                                 <ul>
-                                    <li><a href="#">Beaches</a></li>
-                                    <li><a href="#">Hiking Trails</a></li>
-                                    <li><a href="#">Wildlife Tours</a></li>
+                                    <li><a href="attractions.html">Check Out What We have to Offer!</a></li>
+
                                 </ul>
                             </div>
                             <div class="footer-section">
                                 <h3>Reservations</h3>
                                 <ul>
                                     <li><a href="reservation.jsp">Book Now</a></li>
-                                    <li><a href="#">Reservation Look up</a></li>
+                                    <li><a href="lookup.jsp">Reservation Look up</a></li>
                                 </ul>
                             </div>
                             <div class="footer-section">
                                 <h3>Account</h3>
                                 <ul>
                                     <li><a href="login.jsp">Login</a></li>
-                                    <li><a href="registration.jsp">Create an account</a></li>
+                                    <li><a href="registration.jsp">Create an Account</a></li>
                                 </ul>
                             </div>
+
                         </div>
                         <div class="footer-bottom">
                             <p>&copy; 2023 Moffat Bay Resort. All rights reserved.</p>
                         </div>
                     </footer>
-
                 </body>
 
                 </html>

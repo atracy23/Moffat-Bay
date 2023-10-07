@@ -7,7 +7,7 @@
 					Joseph Youskievicz
 					Angie Tracy
  -->
- 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,12 +75,12 @@
             text-decoration: none;
             transition: color 0.3s ease-in-out;
             padding: 5px 10px;
-          }
+        }
 
-                    ul.navbar li.active a {
-                        border: 2px solid white;
-                        /* Add a white outline for the active link */
-                    }
+        ul.navbar li.active a {
+            border: 2px solid white;
+            /* Add a white outline for the active link */
+        }
 
         ul.navbar li:hover a {
             color: #f39c12;
@@ -130,7 +130,8 @@
             padding: 8px;
         }
 
-        h1, h4 {
+        h1,
+        h4 {
             text-align: center;
             text-decoration: underline black;
             margin-bottom: 5px;
@@ -138,24 +139,37 @@
 
         footer {
             background-color: #26a5b5;
+            /* Teal background color */
             color: white;
             padding: 30px 0;
-            margin-top: auto;
+            margin-top: 20px;
+            text-align: center;
         }
 
         .footer-content {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
             max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            /* Increase the gap for more spacing */
+        }
+
+        .footer-section-info {
+            /* Adjust the width to create spacing */
+            box-sizing: border-box;
+            text-align: center;
+            width: 40%;
+            /* Adjust the width as needed */
         }
 
         .footer-section {
-            width: 25%;
-            padding: 0 15px;
+            /* Adjust the width to create spacing */
             box-sizing: border-box;
             text-align: center;
+            width: 60%;
+            /* Adjust the width as needed */
         }
 
         .footer-section h3 {
@@ -163,9 +177,9 @@
             margin-bottom: 10px;
         }
 
-        .footer-section p,
-        .footer-section ul {
+        .footer-section p {
             font-size: 14px;
+            margin-bottom: 10px;
         }
 
         .footer-section ul {
@@ -174,7 +188,10 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 5px;
+            margin-bottom: 15px;
+            /* Increase the margin for more spacing */
+            text-align: center;
+            /* Center the text */
         }
 
         .footer-section ul li a {
@@ -208,7 +225,7 @@
             border: 1px solid #ddd;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 10px 18px 18px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s;
             margin-bottom: 20px;
             display: none;
@@ -317,22 +334,29 @@
     </div>
     <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <ul>
-                    <li><a href="Aboutus.jsp">Discover the beauty of Moffat Bay Resort, where nature meets
-                            luxury.</a></li>
-                </ul>
+            <div class="footer-section-info">
                 <p>10 Moffat Bay,
                     Joviedsa,
                     WA 98250</p>
                 <p>info@moffatbay.com</p>
                 <p>223-445-0678</p>
             </div>
+
+            <div class="footer-section">
+
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="Aboutus.jsp">Discover the beauty of Moffat Bay Resort, where nature meets
+                            luxury.</a></li>
+                </ul>
+
+
+            </div>
             <div class="footer-section">
                 <h3>Attractions</h3>
                 <ul>
                     <li><a href="attractions.html">Check Out What We have to Offer!</a></li>
+
                 </ul>
             </div>
             <div class="footer-section">
@@ -349,6 +373,7 @@
                     <li><a href="registration.jsp">Create an Account</a></li>
                 </ul>
             </div>
+
         </div>
         <div class="footer-bottom">
             <p>&copy; 2023 Moffat Bay Resort. All rights reserved.</p>
