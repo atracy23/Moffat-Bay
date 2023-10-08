@@ -214,9 +214,9 @@
 
 
         /* Footer styles */
-        /* Footer styles */
         footer {
             background-color: #26a5b5;
+            /* Teal background color */
             color: white;
             padding: 30px 0;
             margin-top: auto;
@@ -224,17 +224,29 @@
         }
 
         .footer-content {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
             max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            /* Increase the gap for more spacing */
+        }
+
+        .footer-section-info {
+            /* Adjust the width to create spacing */
+            box-sizing: border-box;
+            text-align: center;
+            width: 40%;
+            /* Adjust the width as needed */
         }
 
         .footer-section {
-            width: 25%;
-            padding: 0 15px;
+            /* Adjust the width to create spacing */
             box-sizing: border-box;
+            text-align: center;
+            width: 60%;
+            /* Adjust the width as needed */
         }
 
         .footer-section h3 {
@@ -242,9 +254,9 @@
             margin-bottom: 10px;
         }
 
-        .footer-section p,
-        .footer-section ul {
+        .footer-section p {
             font-size: 14px;
+            margin-bottom: 10px;
         }
 
         .footer-section ul {
@@ -253,7 +265,10 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 5px;
+            margin-bottom: 15px;
+            /* Increase the margin for more spacing */
+            text-align: center;
+            /* Center the text */
         }
 
         .footer-section ul li a {
@@ -293,11 +308,11 @@
         .image-container p {
             margin: 0;
         }
-        
+
         .about {
-    		padding: 20px; 
-    		margin-bottom: 20px; 
-		}
+            padding: 20px;
+            margin-bottom: 20px;
+        }
 
         .about-title {
             text-align: center;
@@ -307,7 +322,7 @@
         .contact-form {
             text-align: center;
             margin-top: 20px;
-            
+
         }
 
         .contact-form h2 {
@@ -374,8 +389,8 @@
             for preserving the untouched beauty of Joviedsa Island and sharing it with the world. Our journey began with
             a vision to create a sanctuary where guests could escape the demands of everyday life and reconnect with
             nature's wonders.
-            
-            
+
+
             Nestled along the shores of the crystal-clear Moffat Bay, our resort boasts unparalleled views of the
             azure waters and lush landscapes that define Joviedsa Island. The island's rich biodiversity, from its dense
             forests to its vibrant marine life, provides an exquisite backdrop for an array of outdoor activities
@@ -437,18 +452,31 @@
         Your message has been sent successfully!
     </div>
 
-   <footer>
+    <footer>
         <div class="footer-content">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>Discover the beauty of Moffat Bay Resort, where nature meets luxury.</p>
+            <div class="footer-section-info">
+                <p>10 Moffat Bay,
+                    Joviedsa,
+                    WA 98250</p>
+                <p>info@moffatbay.com</p>
+                <p>223-445-0678</p>
             </div>
-            <div class "footer-section">
+
+            <div class="footer-section">
+
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="Aboutus.jsp">Discover the beauty of Moffat Bay Resort, where nature meets
+                            luxury.</a></li>
+                </ul>
+
+
+            </div>
+            <div class="footer-section">
                 <h3>Attractions</h3>
                 <ul>
-                    <li><a href="#">Beaches</a></li>
-                    <li><a href="#">Hiking Trails</a></li>
-                    <li><a href="#">Wildlife Tours</a></li>
+                    <li><a href="Attractions.jsp">Check Out What We have to Offer!</a></li>
+
                 </ul>
             </div>
             <div class="footer-section">
@@ -465,6 +493,7 @@
                     <li><a href="registration.jsp">Create an Account</a></li>
                 </ul>
             </div>
+
         </div>
         <div class="footer-bottom">
             <p>&copy; 2023 Moffat Bay Resort. All rights reserved.</p>

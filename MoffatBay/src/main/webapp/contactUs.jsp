@@ -526,7 +526,7 @@
                 <div class="footer-section">
                     <h3>Attractions</h3>
                     <ul>
-                        <li><a href="attractions.html">Check Out What We have to Offer!</a></li>
+                        <li><a href="Attractions.jsp">Check Out What We have to Offer!</a></li>
 
                     </ul>
                 </div>
