@@ -72,6 +72,49 @@ public class ReservationDao {
 
 	}
 	
+	public ArrayList<String> fetchAltRoom(ReservationBean reservationBean) throws SQLException, ClassNotFoundException {
+		Connection dbConn = null;
+		PreparedStatement roomStatement = null;
+		ResultSet roomResult = null;
+		
+		System.out.println("Entered Dao");
+		
+		try {
+			
+			dbConn = dbConnection();
+			
+			ArrayList<String> sizeResult = new ArrayList<String>();
+			
+			String fetchAvailableRoom = "SELECT roomsize FROM rooms WHERE currentDate BETWEEN ? AND ? AND maxOccup >= ? AND available = '1'";
+			roomStatement = dbConn.prepareStatement(fetchAvailableRoom);
+
+			roomStatement.setDate(1, reservationBean.getInDate());
+			roomStatement.setDate(2, reservationBean.getOutDate());
+			roomStatement.setInt(3, reservationBean.getNumGuests());
+
+			roomResult = roomStatement.executeQuery();
+			
+			while (roomResult.next()) {
+	        	sizeResult.add(roomResult.getString("roomSize")); // Get the roomSize from the ResultSet
+	        }
+	        
+	        System.out.println("Room size retrieved: "+sizeResult);
+	        return sizeResult;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			if(roomStatement != null) {
+				roomStatement.close();
+			}
+			if(dbConn != null) {
+				dbConn.close();
+			}
+		}
+		return null;
+	}
+	
 	public int updateRooms(ReservationBean reservationBean) throws SQLException, ClassNotFoundException {
 		Connection dbConn = null;
 		PreparedStatement roomStatement = null;
@@ -116,7 +159,7 @@ public class ReservationDao {
 	public Connection dbConnection() throws ClassNotFoundException, SQLException {
         String dbUrl = "jdbc:mysql://localhost:3306/moffat_bay";
         String dbUsername = "root";
-        String dbPassword = "Yogesh@05";
+        String dbPassword = "root";
 
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conn = DriverManager.getConnection(dbUrl, dbUsername, dbPassword);

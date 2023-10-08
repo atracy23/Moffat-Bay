@@ -13,27 +13,18 @@ package com.moffat.bay.controller;
 import javax.servlet.RequestDispatcher;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.time.Instant;
-//import java.time.Duration;
+import javax.servlet.http.HttpSession;
+
+import java.text.DecimalFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-//import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 import java.sql.Date;
-import java.math.BigDecimal;
-import java.net.CookieManager;
-import java.net.CookiePolicy;
 import java.util.ArrayList;
 
 import com.moffat.bay.dao.ReservationDao;
@@ -43,8 +34,6 @@ import com.moffat.bay.model.UserBean;
 import com.moffat.bay.util.PasswordHash;
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 
 //@WebServlet("/reservation")
 public class ReservationServlet extends HttpServlet {
@@ -64,8 +53,6 @@ public class ReservationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
     	
-//		final long serialVersionUID = 1L;
-		
 		ReservationDao reservationDao = new ReservationDao();
   
     	System.out.println("entered doPost on Servlet");
@@ -89,10 +76,11 @@ public class ReservationServlet extends HttpServlet {
 			response.sendRedirect("reservation.jsp");
 			return;
 		}
-   	
     	
     	System.out.println("The room size selected is: "+ roomSize);
     	System.out.println("The number of guests is: " + numGuests);
+    	System.out.println("The check in date is: " + inDate);
+    	System.out.println("The check out date is: " + outDate);
     	
     	// Verifying numGuests selection against roomSize selection
     	Boolean answer = verifyNumGuests(numGuests, roomSize);
@@ -106,7 +94,6 @@ public class ReservationServlet extends HttpServlet {
 			request.setAttribute("outDate", outDate);
     		RequestDispatcher rd = request.getRequestDispatcher("reservation.jsp");
     		rd.forward(request, response);
-    		//response.sendRedirect("reservation.jsp");
     		return;
     	}
     	
@@ -127,39 +114,52 @@ public class ReservationServlet extends HttpServlet {
     	int numDays = calculateNumberOfNights(inDate, outDate);
     	System.out.println("numDays = "+numDays);
     	int roomNum = -1;
-    	if(roomNumList!=null) {  //Rooms were found during time frame
-    		System.out.println("The room list is not null");
-    		for(Integer element : roomNumList) {
-    			if(Collections.frequency(roomNumList, element) >= numDays){
-    				roomNum = element;
-    				System.out.println("The room number is: "+ roomNum);
-    				break;
-    			} 
+    	if(roomNumList.isEmpty() ) { // No rooms found
+    		System.out.println("roomNumList was empty");
+    		} else { // Available rooms were found
+    			System.out.println("The room list is not empty");
+    			for(Integer element : roomNumList) { //Searching available rooms to see if a single room is available on all dates of stay
+    				if(Collections.frequency(roomNumList, element) >= numDays){
+    					roomNum = element;
+    					System.out.println("The room number is: "+ roomNum);
+    					break;
+    				} 
+    			}
     		}
-    	if (roomNum < 0) {// No room available for all nights of stay
-    		System.out.println("There were no available rooms found");    	
-    		String noAvailableRooms = "Unfortunately we do not have any rooms of that size available during that time frame.  "
-    				+ "Please pick different dates or a different room size.";
-   			request.setAttribute("noAvailableRooms", noAvailableRooms);
-   			request.setAttribute("numGuests", numGuests);
-			request.setAttribute("roomSize", roomSize);
-			request.setAttribute("inDate", inDate);
-			request.setAttribute("outDate", outDate);
-   			request.getRequestDispatcher("reservation.jsp").forward(request, response);
-   			return;
-   		} else {
-   			System.out.println("The room number is: "+roomNum);
-   			reservation.setRoomNum(roomNum);
-   	   		Double price = calculatePrice(roomSize, inDate, outDate);
-   	   		reservation.setPrice(price);
-   	       	request.setAttribute("reserveSummary", reservation);   	
-   	        RequestDispatcher reserveSummary = request.getRequestDispatcher("/summary.jsp");
-   	        reserveSummary.forward(request, response);
-   	        return;
-   	            
-   		}
-   		
-    	} 
+    		
+    		if (roomNum < 0) {// No room available for all nights of stay
+    			ArrayList<String> altRoomSize = new ArrayList<>();
+    			altRoomSize = reservationDao.fetchAltRoom(reservation);
+    			String noAvailableRooms = "";
+    			System.out.println("There were no available rooms found");
+    			if(altRoomSize.isEmpty()) { // No other room sizes were found
+    				noAvailableRooms = "Unfortunately we do not have any rooms available during that time frame.  "
+    						+ "Please pick different dates.";
+    			} else { // Other room sizes were found
+    				String roomSizes = findUniqueRoomSizes(altRoomSize);
+    				noAvailableRooms = "Unfortunately we do not have any rooms of that size available during that time frame.  "
+    						+ "However we do have the following room sizes available: <br>" + roomSizes;
+    			}
+    			
+    			request.setAttribute("noAvailableRooms", noAvailableRooms);
+    			request.setAttribute("numGuests", numGuests);
+    			request.setAttribute("roomSize", roomSize);
+    			request.setAttribute("inDate", inDate);
+    			request.setAttribute("outDate", outDate);
+    			request.getRequestDispatcher("reservation.jsp").forward(request, response);
+    			return;
+    		} else { // Room was found available for all nights of stay
+    			System.out.println("The room number is: "+roomNum);
+    			reservation.setRoomNum(roomNum);
+   	   			Double price = calculatePrice(roomSize, inDate, outDate);
+   	   			reservation.setPrice(price);
+   	   			HttpSession session = request.getSession();
+   	   			session.setAttribute("reserveSummary", reservation);
+   	   			request.setAttribute("reserveSummary", reservation);   	
+   	   			RequestDispatcher reserveSummary = request.getRequestDispatcher("/summary.jsp");
+   	   			reserveSummary.forward(request, response);
+   	   			return;
+    		}
 
  	}  catch (NullPointerException e1) {
     	 System.out.println("User not logged in");
@@ -174,11 +174,11 @@ public class ReservationServlet extends HttpServlet {
 
 	
 	
-	public double  calculatePrice(String roomSize, Date inDate, Date outDate) {
-		Double price = 0.0;
+	public Double calculatePrice(String roomSize, Date inDate, Date outDate) {
+		Double price = 0.00;
 		Double tax = .07;
 	    final double QUEEN_PRICE = 120.75;
-	    final double KING_DOUBLE_PRICE = 157.5;
+	    final double KING_DOUBLE_PRICE = 157.50;
 	    int days = 0;
 	    
         // Determine the room price based on roomSize
@@ -191,13 +191,18 @@ public class ReservationServlet extends HttpServlet {
             System.out.println("Invalid room size: " + roomSize);
         }
          days = calculateNumberOfNights(inDate, outDate);
-         
+       
+        Double totalPrice = price*days*tax + price * days;
+        DecimalFormat df = new DecimalFormat("#.00");
+        String totalPriceDecimal = df.format(totalPrice);
+        totalPrice = Double.parseDouble(totalPriceDecimal);
         
-        Double totalPrice = price*days*tax;
+        System.out.println("Price = " + price);
+        System.out.println("Tax = " + tax);
+        System.out.println("Days = " + days);
+        System.out.println("Total Price = " + totalPrice);
         
-        System.out.println("Total price is: "+ totalPrice);
-		
-		return totalPrice;
+        return totalPrice;
 	}
 	
     public int calculateNumberOfNights(Date checkInDate, Date checkOutDate) {
@@ -247,7 +252,19 @@ public class ReservationServlet extends HttpServlet {
     	return answer;
     }
     
-    
-
-
+    public String findUniqueRoomSizes(ArrayList<String> roomSizes) {
+    	List<String> uniqueSizes = roomSizes.stream().distinct().collect(Collectors.toList());
+    	
+    	//Adding List values to string
+    	StringBuilder stringBuilder = new StringBuilder();
+    	for(String item : uniqueSizes) {
+    		stringBuilder.append(item);
+    		stringBuilder.append(", ");
+    	}
+    	String uniqueRoomSizes = stringBuilder.toString();
+    	//Removing last comma and space
+    	uniqueRoomSizes = uniqueRoomSizes.substring(0, uniqueRoomSizes.length() -2);
+    	
+    	return uniqueRoomSizes;
+    }
 }
