@@ -76,9 +76,12 @@
 
         /* Global styles */
         body {
-            background-color: #f0f0f0; /* Lighter background color */
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
-
+        
         /* Navigation bar styles */
         ul.navbar {
             list-style: none;
@@ -331,37 +334,58 @@
     	margin: auto;
     	}
     	
+    	option{
+    		font-size: 18px;
+    	}
+    	
+    	select{
+    		font-size: 18px;
+    	}
+    	
+    	#datepick-1, #datepick-2{
+    		font-size: 18px;
+    	}
+    	
     	.required{
-    		bottom: 180px;
-    		position: fixed;
-    		left: 0;
+    		bottom: 0px;
+    		text-align: right;
+    		right: 0;
     	}
     	
         /* Footer styles */
         footer {
-            background-color: #26a5b5; /* Teal background color */
+            background-color: #26a5b5;
+            /* Teal background color */
             color: white;
-            width: 100%;
-            height: 200px;
-            position: fixed;
-            bottom: 0;
             padding: 30px 0;
-            margin-top: 20px; /* Add spacing at the top */
+            margin-top: auto;
+            text-align: center;
         }
 
         .footer-content {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
             max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            /* Increase the gap for more spacing */
+        }
+
+        .footer-section-info {
+            /* Adjust the width to create spacing */
+            box-sizing: border-box;
+            text-align: center;
+            width: 40%;
+            /* Adjust the width as needed */
         }
 
         .footer-section {
-            width: 25%;
-            padding: 0 15px;
+            /* Adjust the width to create spacing */
             box-sizing: border-box;
-            text-align: center; /* Center text within each div */
+            text-align: center;
+            width: 60%;
+            /* Adjust the width as needed */
         }
 
         .footer-section h3 {
@@ -369,9 +393,9 @@
             margin-bottom: 10px;
         }
 
-        .footer-section p,
-        .footer-section ul {
+        .footer-section p {
             font-size: 14px;
+            margin-bottom: 10px;
         }
 
         .footer-section ul {
@@ -380,7 +404,10 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 5px;
+            margin-bottom: 15px;
+            /* Increase the margin for more spacing */
+            text-align: center;
+            /* Center the text */
         }
 
         .footer-section ul li a {
@@ -390,7 +417,7 @@
 
         .footer-bottom {
             text-align: center;
-            margin-top: 20px; /* Add spacing at the top */
+            margin-top: 20px;
             padding-top: 10px;
             border-top: 1px solid #555;
         }
@@ -475,6 +502,7 @@
 								</select>
 							
 						</div>
+						<br>
 						<c:if test="${roomSizeError!=null}">
 						<div class="item3"> 
 						<h3 style="color: red; font-size: medium;">${roomSizeError}</h3>
@@ -488,6 +516,7 @@
   					<div class="item5">
 			 			<p>Select your Check-out Date:* <input type="text" id="datepick-3" name="outDate" value="${param.outDate}" onchange="hideError()" required></p>
   					</div>
+  					<br>
   					<c:if test="${dateError!=null}">
   					<div class="item6">
   					<h3 id="error_message" style="color: red; font-size: medium;">${dateError}</h3>
@@ -503,13 +532,14 @@
 				<div class="item8">
 					<input type="submit" value="Check Availability" class="button">
 				</div>
+				<div class="required" >
+					* indicates required field
+				</div>
 				</div>
 				</div>
 			</div>	
 	</form>
-	<div class="required" >
-		* indicates required field
-	</div>
+	
 </div>
 
     <footer>
