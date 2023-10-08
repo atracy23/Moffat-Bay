@@ -424,7 +424,7 @@
                 <div class="image-text3">
                     <p class="text-line">Fresh Air...</p>
                 </div>
-                <button class="book-now-button">Book Now</button>
+                <button class="book-now-button"><a href="reservation.jsp">Book Now</a></button>
             </div>
 
             <div class="resort-container">
