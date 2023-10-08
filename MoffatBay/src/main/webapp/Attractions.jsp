@@ -142,7 +142,7 @@
             /* Teal background color */
             color: white;
             padding: 30px 0;
-            margin-top: 20px;
+            margin-top: auto;
             text-align: center;
         }
 
