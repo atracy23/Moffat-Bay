@@ -46,8 +46,10 @@
 
         /* Global styles */
         body {
-            background-color: #f0f0f0; /* Lighter background color */
-            margin: 0 0 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         
         .body-container{
@@ -288,41 +290,49 @@
     		content: center;
     	}
     	
-    	/* Footer styles */
-/*        footer {
-            background-color: #26a5b5; *//* Teal background color */
-/*			color: white;
+    	footer {
             width: 100%;
-            height: 200px;
-            position: fixed;
-            bottom: 0;
+            background-color: #26a5b5; /* Teal background color */
+            color: white;
             padding: 30px 0;
-            margin-top: 20px; *//* Add spacing at the top */
-/*        }
+            text-align: center;
+            margin-top: auto; /* Push the footer to the bottom */
+        }
 
         .footer-content {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
             max-width: 1200px;
             margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            /* Increase the gap for more spacing */
+        }
+
+        .footer-section-info {
+            /* Adjust the width to create spacing */
+            box-sizing: border-box;
+            text-align: center;
+            width: 40%;
+            /* Adjust the width as needed */
         }
 
         .footer-section {
-            width: 25%;
-            padding: 0 15px;
+            /* Adjust the width to create spacing */
             box-sizing: border-box;
-            text-align: center; *//* Center text within each div */
-/*        }
+            text-align: center;
+            width: 60%;
+            /* Adjust the width as needed */
+        }
 
         .footer-section h3 {
             font-size: 18px;
             margin-bottom: 10px;
         }
 
-        .footer-section p,
-        .footer-section ul {
+        .footer-section p {
             font-size: 14px;
+            margin-bottom: 10px;
         }
 
         .footer-section ul {
@@ -331,7 +341,10 @@
         }
 
         .footer-section ul li {
-            margin-bottom: 5px;
+            margin-bottom: 15px;
+            /* Increase the margin for more spacing */
+            text-align: center;
+            /* Center the text */
         }
 
         .footer-section ul li a {
@@ -341,85 +354,14 @@
 
         .footer-bottom {
             text-align: center;
-            margin-top: 20px; *//* Add spacing at the top */
-/*            padding-top: 10px;
+            margin-top: 20px;
+            padding-top: 10px;
             border-top: 1px solid #555;
         }
 
         .footer-bottom p {
             font-size: 12px;
         }
-*/
-        /* Adjust font size for the login header */
-        .login-header {
-            font-size: 18px; /* Change the font size as needed */
-        }
-        
-         /* Footer styles */
-                footer {
-                	position: absolute;                   
-                	bottom: 0;
-                    background-color: #26a5b5;
-                    /* Teal background color */
-                    color: white;
-                    padding: 30px 0;
-                    margin-top: 20px;
-                    width: 100%;
-                    /* Add spacing at the top */
-                }
-
-                .footer-content {
-                    display: flex;
-                    justify-content: space-around;
-                    flex-wrap: wrap;
-                    max-width: 1200px;
-                    margin: 0 auto;
-                }
-
-                .footer-section {
-                    width: 25%;
-                    padding: 0 15px;
-                    box-sizing: border-box;
-                    text-align: center;
-                    /* Center text within each div */
-                }
-
-                .footer-section h3 {
-                    font-size: 18px;
-                    margin-bottom: 10px;
-                }
-
-                .footer-section p,
-                .footer-section ul {
-                    font-size: 14px;
-                }
-
-                .footer-section ul {
-                    list-style: none;
-                    padding: 0;
-                }
-
-                .footer-section ul li {
-                    margin-bottom: 5px;
-                }
-
-                .footer-section ul li a {
-                    color: white;
-                    text-decoration: none;
-                }
-
-                .footer-bottom {
-                    text-align: center;
-                    margin-top: 20px;
-                    /* Add spacing at the top */
-                    padding-top: 10px;
-                    border-top: 1px solid #555;
-                    margin-bottom: 0px;
-                }
-
-                .footer-bottom p {
-                    font-size: 12px;
-                }
         
 
     </style>
