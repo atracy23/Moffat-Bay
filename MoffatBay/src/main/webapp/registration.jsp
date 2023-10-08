@@ -231,6 +231,14 @@
             box-sizing: border-box;
             font-family: 'Raleway', sans-serif; /* Apply Raleway font to text inputs */
         }
+        
+        .required{
+    		bottom: 0px;
+    		text-align: right;
+    		right: 0;
+    		width: 70%;
+    	}
+    	
    
         /* Footer styles */
         footer {
@@ -371,14 +379,15 @@
 			<input type="submit" class="button" value="Sign Up" style="margin: auto;"><br><br>
 			
 		</form>
+		<div class="required">
+				* indicates required field
+		</div>
 		<br>
 		<h3 style="color: red">${message}</h3>
 				
 		<p>Already have an account? <a href="login.jsp"> Login</a></p>
 	</div>
-	<div class="required">
-		* indicates required field
-	</div>
+	
 </div>
 	<br>
     <footer>
